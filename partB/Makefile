@@ -7,26 +7,28 @@ hw2: ./srcs/hw2.cpp
 
 test: hw2
 	@echo "Running tests..."
+	@mkdir -p ./test/output
 	@for test in ./test/input/case*.txt; do \
 		base=$$(basename $$test); \
 		echo "Testing $$base..."; \
-		./hw2 $$test temp_output.txt; \
-		if diff -w temp_output.txt ./test/output/$$base > /dev/null; then \
+		./hw2 $$test ./test/output/$$base; \
+		python3 ./test/visualize.py ./test/output/$$base; \
+		if diff -w ./test/output/$$base ./test/expected_output/$$base > /dev/null; then \
 			echo "PASSED: $$base"; \
 		else \
 			echo "FAILED: $$base"; \
-			diff -w temp_output.txt ./test/output/$$base; \
+			diff -w ./test/output/$$base ./test/expected_output/$$base; \
 		fi; \
 	done
-	@rm -f temp_output.txt
 	@echo "All tests completed."
 
 benchmark: hw2
 	@echo "Running benchmarks..."
+	@mkdir -p ./test/output
 	@for test in ./test/input/case*.txt; do \
 		base=$$(basename $$test); \
 		echo "\nBenchmarking $$base:"; \
-		time ./hw2 $$test /dev/null; \
+		time ./hw2 $$test ./test/output/$$base; \
 	done
 	@echo "\nBenchmark completed."
 
@@ -40,5 +42,5 @@ check: hw2
 
 clean:
 	rm -f hw2
-	rm -f temp_output.txt
+	rm -rf ./test/output
 

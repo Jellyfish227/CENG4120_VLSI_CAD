@@ -11,26 +11,56 @@ struct Coordinates {
     pair<int, int> lowerRight;
     pair<int, int> upperLeft;
     pair<int, int> upperRight;
+    Coordinates(
+        pair<int, int> lowerLeft, 
+        pair<int, int> lowerRight, 
+        pair<int, int> upperLeft, 
+        pair<int, int> upperRight
+    ) : lowerLeft(lowerLeft), lowerRight(lowerRight), upperLeft(upperLeft), upperRight(upperRight) {}
+    Coordinates(){}
+};
+
+enum NodeType {
+    LEAF = 0,
+    INTERNAL = 1
+};
+
+enum Rotation {
+    NONE = -1,
+    ORIGINAL = 0,
+    ROTATED = 1
 };
 
 struct Block {
-    int width;
-    int height;
+    vector<pair<int, int>> shape; // <width, height>
     Coordinates coordinates;
-    bool rotated;
-    Block(int w, int h) : width(w), height(h), coordinates(Coordinates()), rotated(false) {}
-    void rotate(){
-        int temp = width;
-        width = height;
-        height = temp;
-        rotated = !rotated;
+    Rotation orientation;
+    Block(int w, int h){
+        shape.push_back(make_pair(w, h));
+        shape.push_back(make_pair(h, w));
     }
 };
 
+struct graphVertex {
+    pair<int, int> vertex;
+    Rotation orientation;
+    Rotation lcSign;
+    Rotation rcSign;
+    graphVertex(int w, int h, Rotation o) : orientation(o) {
+        vertex = make_pair(w, h);
+    }
+    graphVertex(int w, int h, Rotation lcSign, Rotation rcSign) : lcSign(lcSign), rcSign(rcSign) {
+        vertex = make_pair(w, h);
+    }
+    graphVertex(){}
+};
+
 struct Node {
+    NodeType type;
     char value;
     Block* block;
-    vector<pair<unsigned int, pair<int, int>>> graphVertices; // <rotations, <width, height>> || <rotations, <height, width>>
+    vector<graphVertex> graphVertices; 
+    graphVertex minShape;
     Node *left;
     Node* right;
     Node(char v) : value(v), block(nullptr), left(nullptr), right(nullptr) {}
@@ -39,8 +69,12 @@ struct Node {
 Node* buildTree(stack<Node*>& npe_stack, vector<Block>& blocks) {
     Node* root = npe_stack.top();
     npe_stack.pop();
-    if (isdigit(root->value)) root->block = &blocks.at(int(root->value) - '0');
+    if (isdigit(root->value)) {
+        root->block = &blocks.at(int(root->value) - '0');
+        root->type = NodeType::LEAF;
+    }
     if (!isdigit(root->value)) {
+        root->type = NodeType::INTERNAL;
         root->right = buildTree(npe_stack, blocks);
         root->left = buildTree(npe_stack, blocks);
     }
@@ -54,239 +88,108 @@ void compute_shape_curve(Node* root) {
     compute_shape_curve(root->right);
 
     // leaf node case
-    if (root->left == nullptr && root->right == nullptr) {
-        root->graphVertices.push_back(make_pair(false, make_pair(root->block->width, root->block->height)));
-        root->graphVertices.push_back(make_pair(true, make_pair(root->block->height, root->block->width)));
+    if (root->type == NodeType::LEAF) {
+        root->graphVertices.push_back(graphVertex(root->block->shape.at(Rotation::ORIGINAL).first, root->block->shape.at(Rotation::ORIGINAL).second, Rotation::ORIGINAL));
+        root->graphVertices.push_back(graphVertex(root->block->shape.at(Rotation::ROTATED).first, root->block->shape.at(Rotation::ROTATED).second, Rotation::ROTATED));
     }
     else // non-leaf node case
     {
-        vector<pair<unsigned int, pair<int, int>>> leftVertices = root->left->graphVertices;
-        vector<pair<unsigned int, pair<int, int>>> rightVertices = root->right->graphVertices;
+        vector<graphVertex> leftVertices = root->left->graphVertices;
+        vector<graphVertex> rightVertices = root->right->graphVertices;
         // compute the graph vertices according to the slicing function
-        if (root->value == '+') {
-            // add vertical (max x, sum y)
+        vector<graphVertex> candidates;
 
-            // Sort left vertices by min width
-            sort(leftVertices.begin(), leftVertices.end(), [](const pair<unsigned int, pair<int, int>>& a, const pair<unsigned int, pair<int, int>>& b) {
-                return a.second.first < b.second.first;
-            });
-
-            // Sort right vertices by min width
-            sort(rightVertices.begin(), rightVertices.end(), [](const pair<unsigned int, pair<int, int>>& a, const pair<unsigned int, pair<int, int>>& b) {
-                return a.second.first < b.second.first;
-            });
-
-            int widthBoundMin = max(leftVertices.front().second.first, rightVertices.front().second.first);
-
-            // left vertices as plane reference
-            for (auto it = leftVertices.begin(); it != leftVertices.end(); ++it) 
-            {
-                auto& vertexL = *it;
-                // Construct line segment: (min width, max width)
-                pair<int, int> lineSegment;
-                if (std::next(it) != leftVertices.end()) // peak next vertex
-                {
-                    auto& nextVertexL = *std::next(it);
-                    lineSegment = make_pair(vertexL.second.first, nextVertexL.second.first);
-                } else {
-                    lineSegment = make_pair(vertexL.second.first, INT_MAX);
+        for (auto& vLeft : leftVertices) {
+            for (auto& vRight : rightVertices) {
+                if (root->value == '+') {
+                    candidates.emplace_back( // max x, sum y
+                        max(vLeft.vertex.first, vRight.vertex.first), 
+                        vLeft.vertex.second + vRight.vertex.second, 
+                        vLeft.orientation,
+                        vRight.orientation
+                    );
                 }
-                
-                for (auto& vertexR : rightVertices) 
-                {
-                    if (vertexR.second.first >= widthBoundMin 
-                        && (vertexR.second.first >= lineSegment.first || vertexR.second.first <= lineSegment.second)) 
-                    {
-                        root->graphVertices.push_back(make_pair(vertexL.first << 1 | vertexR.first, make_pair(vertexR.second.first, vertexR.second.second+vertexL.second.second)));
-                    }
-                }
-            }
-
-            // right vertices as plane reference
-            for (auto it = rightVertices.begin(); it != rightVertices.end(); ++it) 
-            {
-                auto& vertexR = *it;
-                // Construct line segment: (min width, max width)
-                pair<int, int> lineSegment;
-                if (std::next(it) != rightVertices.end()) // peak next vertex
-                {
-                    auto& nextVertexR = *std::next(it);
-                    lineSegment = make_pair(vertexR.second.first, nextVertexR.second.first);
-                } else {
-                    lineSegment = make_pair(vertexR.second.first, INT_MAX);
-                }
-
-                for (auto& vertexL : leftVertices)
-                {
-                    if (vertexL.second.first >= widthBoundMin
-                        && (vertexL.second.first >= lineSegment.first || vertexL.second.first <= lineSegment.second))
-                    {
-                        root->graphVertices.push_back(make_pair(vertexL.first << 1 | vertexR.first, make_pair(vertexL.second.first, vertexL.second.second+vertexR.second.second)));
-                    }
-                }
-            }
-
-            
-        } else if (root->value == '*') 
-        {
-            // add horizontal (sum x, max y)
-
-            // Sort left vertices by min height
-            sort(leftVertices.begin(), leftVertices.end(), [](const pair<unsigned int, pair<int, int>>& a, const pair<unsigned int, pair<int, int>>& b) {
-                return a.second.second < b.second.second;
-            });
-
-            // Sort right vertices by min height
-            sort(rightVertices.begin(), rightVertices.end(), [](const pair<unsigned int, pair<int, int>>& a, const pair<unsigned int, pair<int, int>>& b) {
-                return a.second.second < b.second.second;
-            });
-
-            int heightBoundMin = max(leftVertices.front().second.second, rightVertices.front().second.second);
-            
-            // left vertices as plane reference
-            for (auto it = leftVertices.begin(); it != leftVertices.end(); ++it) 
-            {
-                auto& vertexL = *it;
-                // Construct line segment: (min height, max height)
-                pair<int, int> lineSegment;
-                if (std::next(it) != leftVertices.end()) // peak next vertex
-                {
-                    auto& nextVertexL = *std::next(it);
-                    lineSegment = make_pair(vertexL.second.second, nextVertexL.second.second);
-                } else {
-                    lineSegment = make_pair(vertexL.second.second, INT_MAX);
-                }
-
-                for (auto& vertexR : rightVertices)
-                {
-                    if (vertexR.second.second >= heightBoundMin
-                        && (vertexR.second.second >= lineSegment.first || vertexR.second.second <= lineSegment.second))
-                    {
-                        root->graphVertices.push_back(make_pair(vertexL.first << 1 | vertexR.first, make_pair(vertexR.second.first+vertexL.second.first, vertexR.second.second)));
-                    }
-                }
-            }
-
-            // right vertices as plane reference
-            for (auto it = rightVertices.begin(); it != rightVertices.end(); ++it) 
-            {
-                auto& vertexR = *it;
-                // Construct line segment: (min height, max height)
-                pair<int, int> lineSegment;
-                if (std::next(it) != rightVertices.end()) // peak next vertex
-                {
-                    auto& nextVertexR = *std::next(it);
-                    lineSegment = make_pair(vertexR.second.second, nextVertexR.second.second);
-                } else {
-                    lineSegment = make_pair(vertexR.second.second, INT_MAX);
-                }
-
-                for (auto& vertexL : leftVertices)
-                {
-                    if (vertexL.second.second >= heightBoundMin
-                        && (vertexL.second.second >= lineSegment.first || vertexL.second.second <= lineSegment.second))
-                    {
-                        root->graphVertices.push_back(make_pair(vertexL.first << 1 | vertexR.first, make_pair(vertexL.second.first+vertexR.second.first, vertexL.second.second)));
-                    }
+                else if (root->value == '*') {
+                    candidates.emplace_back( // sum x, max y
+                        vLeft.vertex.first + vRight.vertex.first, 
+                        max(vLeft.vertex.second, vRight.vertex.second), 
+                        vLeft.orientation,
+                        vRight.orientation
+                    );
                 }
             }
         }
+
+        // sort the candidates by width ascending, then height ascending
+        sort(candidates.begin(), candidates.end(), [](const graphVertex& a, const graphVertex& b) {
+            return (a.vertex.first == b.vertex.first) ? (a.vertex.second < b.vertex.second) : (a.vertex.first < b.vertex.first);
+        });
+
+        vector<graphVertex> filteredVertices;
+        if (!candidates.empty()) {
+            filteredVertices.push_back(candidates.at(0));
+            int minHeight = candidates.at(0).vertex.second;
+            for (auto& v : candidates) {
+                if (v.vertex.second < minHeight) {
+                    filteredVertices.push_back(v);
+                    minHeight = v.vertex.second;
+                }
+            }
+        }
+        root->graphVertices = filteredVertices;
+        root->minShape = *std::min_element(
+            root->graphVertices.begin(),
+            root->graphVertices.end(),
+            [](const auto& a, const auto& b) {
+                return (a.vertex.first * a.vertex.second) < (b.vertex.first * b.vertex.second);
+            }
+        );
     }
 }
 
-void compute_coordinates(Node *root, int x_offset = 0, int y_offset = 0)
-{
-    if (root == nullptr)
-        return;
+void set_shape(Node* root) {
+    if (root == nullptr) return;
 
-    // If leaf node, set coordinates directly
-    if (isdigit(root->value))
-    {
-        Block *block = root->block;
-        block->coordinates.lowerLeft = make_pair(x_offset, y_offset);
-        block->coordinates.lowerRight = make_pair(x_offset + block->width, y_offset);
-        block->coordinates.upperLeft = make_pair(x_offset, y_offset + block->height);
-        block->coordinates.upperRight = make_pair(x_offset + block->width, y_offset + block->height);
-        return;
+    if (root->type == NodeType::LEAF) {
+        root->block->orientation = root->minShape.orientation;
     }
-
-    // Get optimal shape from computed vertices
-    auto minVertex = std::min_element(
-        root->graphVertices.begin(),
-        root->graphVertices.end(),
-        [](const auto &a, const auto &b)
-        {
-            return (a.second.first * a.second.second) < (b.second.first * b.second.second);
-        });
-
-    unsigned int minRotations = minVertex->first;
-
-    // Extract rotation information for both children
-    bool leftRotated = (minRotations & 2) != 0;
-    bool rightRotated = (minRotations & 1) != 0;
-
-    // Apply rotations if needed
-    if (root->left->block && leftRotated)
-        root->left->block->rotate();
-    if (root->right->block && rightRotated)
-        root->right->block->rotate();
-
-    if (root->value == '+')
-    { // Horizontal cut - blocks stacked bottom to top
-        // Left child at the bottom
-        compute_coordinates(root->left, x_offset, y_offset);
-
-        // Determine left child's height for positioning right child
-        int leftHeight;
-        if (isdigit(root->left->value))
-        {
-            leftHeight = root->left->block->height;
-        }
-        else
-        {
-            // Find max y-coordinate in left subtree
-            leftHeight = 0;
-            for (auto &vertex : root->left->graphVertices)
-            {
-                if (vertex.first == (minRotations >> 1))
-                {
-                    leftHeight = vertex.second.second;
-                    break;
-                }
-            }
-        }
-
-        // Right child on top of left child
-        compute_coordinates(root->right, x_offset, y_offset + leftHeight);
+    else {
+        root->left->block->orientation = root->minShape.lcSign;
+        root->right->block->orientation = root->minShape.rcSign;
+        set_shape(root->left);
+        set_shape(root->right);
     }
-    else if (root->value == '*')
-    { // Vertical cut - blocks placed left to right
-        // Left child at the left side
-        compute_coordinates(root->left, x_offset, y_offset);
+}
 
-        // Determine left child's width for positioning right child
-        int leftWidth;
-        if (isdigit(root->left->value))
-        {
-            leftWidth = root->left->block->width;
-        }
-        else
-        {
-            // Find max x-coordinate in left subtree
-            leftWidth = 0;
-            for (auto &vertex : root->left->graphVertices)
-            {
-                if (vertex.first == (minRotations >> 1))
-                {
-                    leftWidth = vertex.second.first;
-                    break;
-                }
-            }
-        }
-
-        // Right child to the right of left child
-        compute_coordinates(root->right, x_offset + leftWidth, y_offset);
+void compute_coordinates(Node* root, int x = 0, int y = 0) {
+    int bWidth = root->minShape.vertex.first;
+    int bHeight = root->minShape.vertex.second;
+    if (root->type == NodeType::LEAF) {
+        int modWidth = root->block->shape.at(root->block->orientation).first;
+        int modHeight = root->block->shape.at(root->block->orientation).second;
+        root->block->coordinates 
+        = Coordinates(
+            {x, y}, 
+            {x + modWidth, y}, 
+            {x, y + modHeight}, 
+            {x + modWidth, y + modHeight}
+        );
     }
+    else {
+        int lWidth = root->left->minShape.vertex.first;
+        int lHeight = root->left->minShape.vertex.second;
+        int rWidth = root->right->minShape.vertex.first;
+        int rHeight = root->right->minShape.vertex.second;
+        if (root->value == '+') {
+            compute_coordinates(root->left, x, y);
+            compute_coordinates(root->right, x, y + lHeight);
+        }
+        else {
+            compute_coordinates(root->left, x, y);
+            compute_coordinates(root->right, x + lWidth, y);
+        }
+    }
+    
 }
 
 int main(int argc, char *argv[])
@@ -311,10 +214,9 @@ int main(int argc, char *argv[])
         printf("Failed to create/open output file: %s\n", outFile);
         exit(EXIT_FAILURE);
     }
-
-    vector<Block> blocks;
     
     // Read number of blocks
+    vector<Block> blocks;
     int n;
     input >> n;
     
@@ -366,19 +268,7 @@ int main(int argc, char *argv[])
     }
 
     //TODO: Calculate the area of the slicing floorplan
-    // Find minimum area configuration using min_element lambda
-    auto minVertex = std::min_element(
-        slicingTree->graphVertices.begin(),
-        slicingTree->graphVertices.end(),
-        [](const auto& a, const auto& b) {
-            return (a.second.first * a.second.second) < (b.second.first * b.second.second);
-        }
-    );
-
-    // Extract results
-    unsigned int minRotations = minVertex->first;
-    pair<int, int> minDimensions = minVertex->second;
-    int minArea = minDimensions.first * minDimensions.second;
+    int minArea = slicingTree->minShape.vertex.first * slicingTree->minShape.vertex.second;
 
     // Output results
     output << minArea << endl;
