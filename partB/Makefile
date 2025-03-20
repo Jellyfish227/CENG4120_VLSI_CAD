@@ -1,16 +1,16 @@
 cc=g++
 CFLAGS=-Wall -std=c++17
-all: solver
+all: hw2
 
-solver: ./srcs/solver.cpp
-	$(cc) $(CFLAGS) -o solver ./srcs/solver.cpp
+hw2: ./srcs/hw2.cpp
+	$(cc) $(CFLAGS) -o hw2 ./srcs/hw2.cpp
 
-test: solver
+test: hw2
 	@echo "Running tests..."
 	@for test in ./test/input/case*.txt; do \
 		base=$$(basename $$test); \
 		echo "Testing $$base..."; \
-		./solver < $$test > temp_output.txt; \
+		./hw2 $$test temp_output.txt; \
 		if diff -w temp_output.txt ./test/output/$$base > /dev/null; then \
 			echo "PASSED: $$base"; \
 		else \
@@ -21,16 +21,16 @@ test: solver
 	@rm -f temp_output.txt
 	@echo "All tests completed."
 
-benchmark: solver
+benchmark: hw2
 	@echo "Running benchmarks..."
 	@for test in ./test/input/case*.txt; do \
 		base=$$(basename $$test); \
 		echo "\nBenchmarking $$base:"; \
-		time ./solver < $$test > /dev/null; \
+		time ./hw2 $$test /dev/null; \
 	done
 	@echo "\nBenchmark completed."
 
-check: solver
+check: hw2
 	@echo "=== Running Tests ==="
 	@$(MAKE) -s test
 	@echo "\n=== Running Benchmarks ==="
@@ -39,6 +39,6 @@ check: solver
 .PHONY: clean test benchmark check
 
 clean:
-	rm -f solver
+	rm -f hw2
 	rm -f temp_output.txt
 
