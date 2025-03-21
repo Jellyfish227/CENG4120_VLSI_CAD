@@ -1,46 +1,67 @@
 cc=g++
 CFLAGS=-Wall -std=c++17
-all: hw2
+all: floorplanner
 
-hw2: ./srcs/hw2.cpp
-	$(cc) $(CFLAGS) -o hw2 ./srcs/hw2.cpp
+floorplanner: ./srcs/floorplanner.cpp
+	$(cc) $(CFLAGS) -o floorplanner ./srcs/floorplanner.cpp
 
-test: hw2
+run: floorplanner
+	@echo "Running all test cases..."
+	@mkdir -p ./output
+	@for test in ./test/input/case*.txt; do \
+		base=$$(basename $$test); \
+		echo "Running $$base..."; \
+		./floorplanner $$test ./output/$$base; \
+	done
+	@echo "All runs completed."
+
+test: floorplanner
 	@echo "Running tests..."
-	@mkdir -p ./test/output
+	@mkdir -p ./output
 	@for test in ./test/input/case*.txt; do \
 		base=$$(basename $$test); \
 		echo "Testing $$base..."; \
-		./hw2 $$test ./test/output/$$base; \
-		python3 ./test/visualize.py ./test/output/$$base; \
-		if diff -w ./test/output/$$base ./test/expected_output/$$base > /dev/null; then \
+		./floorplanner $$test ./output/$$base; \
+		if diff -w ./output/$$base ./test/expected_output/$$base > /dev/null; then \
 			echo "PASSED: $$base"; \
 		else \
 			echo "FAILED: $$base"; \
-			diff -w ./test/output/$$base ./test/expected_output/$$base; \
+			diff -w ./output/$$base ./test/expected_output/$$base; \
 		fi; \
+		python3 ./test/visualize.py ./output/$$base; \
 	done
 	@echo "All tests completed."
 
-benchmark: hw2
+
+visualize: floorplanner
+	@echo "Visualizing all test cases..."
+	@$(MAKE) -s run
+	@for test in ./output/case*.txt; do \
+		base=$$(basename $$test); \
+		echo "Visualizing $$base..."; \
+		python3 ./test/visualize.py $$test; \
+	done
+	@echo "All visualizations completed."
+
+benchmark: floorplanner
 	@echo "Running benchmarks..."
-	@mkdir -p ./test/output
+	@mkdir -p ./output
 	@for test in ./test/input/case*.txt; do \
 		base=$$(basename $$test); \
 		echo "\nBenchmarking $$base:"; \
-		time ./hw2 $$test ./test/output/$$base; \
+		time ./floorplanner $$test ./output/$$base; \
 	done
 	@echo "\nBenchmark completed."
 
-check: hw2
+check: floorplanner
 	@echo "=== Running Tests ==="
 	@$(MAKE) -s test
 	@echo "\n=== Running Benchmarks ==="
 	@$(MAKE) -s benchmark
 
-.PHONY: clean test benchmark check
+.PHONY: clean test benchmark check visualize run
 
 clean:
-	rm -f hw2
-	rm -rf ./test/output
+	rm -f floorplanner
+	rm -rf ./output
 

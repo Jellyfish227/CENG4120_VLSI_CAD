@@ -9,7 +9,17 @@ make
 ## Run
 
 ```bash
-./solver <input_file> <output_file>
+./floorplanner <input_file> <output_file>
+```
+or to run all cases, use the following command:
+```bash
+make run
+```
+
+## Check
+To run test and benchmark, use the following command:
+```bash
+make check
 ```
 
 ## Test
@@ -24,10 +34,10 @@ To test the performance of the solver, use the following command:
 make benchmark
 ```
 
-## Check
-To run test and benchmark, use the following command:
+## Visualize
+To visualize the floorplan, use the following command:
 ```bash
-make check
+make visualize
 ```
 
 ## Clean
