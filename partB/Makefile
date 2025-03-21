@@ -22,11 +22,11 @@ test: floorplanner
 		base=$$(basename $$test); \
 		echo "Testing $$base..."; \
 		./floorplanner $$test ./output/$$base; \
-		if diff -w ./output/$$base ./test/expected_output/$$base > /dev/null; then \
+		if diff -w ./output/$$base ./test/output/$$base > /dev/null; then \
 			echo "PASSED: $$base"; \
 		else \
 			echo "FAILED: $$base"; \
-			diff -w ./output/$$base ./test/expected_output/$$base; \
+			diff -w ./output/$$base ./test/output/$$base; \
 		fi; \
 		python3 ./test/visualize.py ./output/$$base; \
 	done
