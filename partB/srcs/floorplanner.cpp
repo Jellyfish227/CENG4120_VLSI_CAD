@@ -127,7 +127,7 @@ void compute_shape_curve(Node *root)
     }
     else
     {
-        vector<GraphVertex> candidates;
+        vector<GraphVertex> dp;
         vector<GraphVertex> left_curve = root->left->shape_curve;
         vector<GraphVertex> right_curve = root->right->shape_curve;
 
@@ -147,12 +147,12 @@ void compute_shape_curve(Node *root)
                     x = max(left_curve.at(i).x, right_curve.at(j).x);
                     y = left_curve.at(i).y + right_curve.at(j).y;
                 }
-                candidates.emplace_back(x, y, i, j);
+                dp.emplace_back(x, y, i, j);
             }
         }
 
         // Sort dp result by width ascending, then height ascending
-        sort(candidates.begin(), candidates.end(),
+        sort(dp.begin(), dp.end(),
              [](const GraphVertex &a, const GraphVertex &b)
              {
                  return (a.x == b.x) ? (a.y < b.y) : (a.x < b.x);
@@ -160,16 +160,16 @@ void compute_shape_curve(Node *root)
 
         // Filter and keep non-increasing points
         vector<GraphVertex> result;
-        if (!candidates.empty())
+        if (!dp.empty())
         {
-            result.push_back(candidates[0]);
-            int min_y = candidates[0].y;
-            for (size_t k = 1; k < candidates.size(); ++k)
+            result.push_back(dp.at(0));
+            int min_y = dp.at(0).y;
+            for (size_t k = 1; k < dp.size(); ++k)
             {
-                if (candidates[k].y < min_y)
+                if (dp.at(k).y < min_y)
                 {
-                    result.push_back(candidates[k]);
-                    min_y = candidates[k].y;
+                    result.push_back(dp.at(k));
+                    min_y = dp.at(k).y;
                 }
             }
         }
@@ -191,12 +191,12 @@ void setOrientation(Node *root)
 {
     if (root->type == LEAF)
     {
-        root->block->orientation = root->shape_curve[root->chosen_index].rotation;
+        root->block->orientation = root->shape_curve.at(root->chosen_index).rotation;
     }
     else
     {
-        int left_idx = root->shape_curve[root->chosen_index].lShape;
-        int right_idx = root->shape_curve[root->chosen_index].rShape;
+        int left_idx = root->shape_curve.at(root->chosen_index).lShape;
+        int right_idx = root->shape_curve.at(root->chosen_index).rShape;
         root->left->chosen_index = left_idx;
         root->right->chosen_index = right_idx;
         setOrientation(root->left);
@@ -237,9 +237,9 @@ void computeCood(Node *root, int x, int y)
     }
     else
     {
-        int left_idx = root->shape_curve[idx].lShape;
-        int w_left = root->left->shape_curve[left_idx].x;
-        int h_left = root->left->shape_curve[left_idx].y;
+        int left_idx = root->shape_curve.at(idx).lShape;
+        int w_left = root->left->shape_curve.at(left_idx).x;
+        int h_left = root->left->shape_curve.at(left_idx).y;
 
         if (root->value == '*')
         {
@@ -332,7 +332,7 @@ int main(int argc, char *argv[])
     int best_idx = -1;
     for (int i = 0; i < root->shape_curve.size(); ++i)
     {
-        int area = root->shape_curve[i].x * root->shape_curve[i].y;
+        int area = root->shape_curve.at(i).x * root->shape_curve.at(i).y;
         if (area < min_area)
         {
             min_area = area;
@@ -358,8 +358,7 @@ int main(int argc, char *argv[])
     }
     output << min_area << endl;
 
-    // Clean up (optional, skipped for simplicity)
-    // delete root;
-
+    input.close();
+    output.close();
     return 0;
 }
