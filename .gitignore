@@ -1,6 +1,12 @@
 ## MacOS temporary files
 .DS_Store
 
+## VSCode
+.vscode/
+
+## Submission packages
+*.zip
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
