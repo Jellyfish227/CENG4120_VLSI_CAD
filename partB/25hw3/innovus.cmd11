@@ -1,0 +1,42 @@
+#######################################################
+#                                                     
+#  Innovus Command Logging File                     
+#  Created on Sun Apr 20 17:00:47 2025                
+#                                                     
+#######################################################
+
+#@(#)CDS: Innovus v20.14-s095_1 (64bit) 04/19/2021 14:41 (Linux 2.6.32-431.11.2.el6.x86_64)
+#@(#)CDS: NanoRoute 20.14-s095_1 NR210411-1939/20_14-UB (database version 18.20.547) {superthreading v2.13}
+#@(#)CDS: AAE 20.14-s018 (64bit) 04/19/2021 (Linux 2.6.32-431.11.2.el6.x86_64)
+#@(#)CDS: CTE 20.14-s027_1 () Apr 13 2021 21:29:07 ( )
+#@(#)CDS: SYNTECH 20.14-s017_1 () Mar 25 2021 13:07:27 ( )
+#@(#)CDS: CPE v20.14-s080
+#@(#)CDS: IQuantus/TQuantus 20.1.1-s460 (64bit) Fri Mar 5 18:46:16 PST 2021 (Linux 2.6.32-431.11.2.el6.x86_64)
+
+set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+suppressMessage ENCEXT-2799
+setMultiCpuUsage -localCpu 8
+set init_verilog cla4_synth.v
+set init_top_cell cla4
+set init_lef_file FreePDK45/gscl45nm.lef
+set init_pwr_net vdd
+set init_gnd_net gnd
+set init_mmmc_file mmmc.tcl
+init_design
+floorPlan -r 1.0 0.85 4.0 4.0 4.0 4.0
+globalNetConnect vdd -type pgpin -pin vdd -inst *
+globalNetConnect gnd -type pgpin -pin gnd -inst *
+sroute -nets {vdd gnd}
+addRing -center 1 -spacing 0.5 -width 0.5 -layer {top 3 bottom 3 left 4 right 4} -nets {gnd vdd}
+addStripe -nets {vdd gnd} -layer 4 -direction vertical -width 0.4 -spacing 0.5 -set_to_set_distance 5 -start 0.5
+addStripe -nets {vdd gnd} -layer 3 -direction horizontal -width 0.4 -spacing 0.5 -set_to_set_distance 5 -start 0.5
+place_design
+addFiller -cell FILL -prefix FILL -fillBoundary
+assignIoPins
+routeDesign
+verify_drc
+win on
+setEditMode -type regular
+fit
+verify_drc
+zoomBox 0.89450 -0.22850 26.15350 23.75450

@@ -1,0 +1,666 @@
+[04/20 16:38:18      0s] 
+[04/20 16:38:18      0s] Cadence Innovus(TM) Implementation System.
+[04/20 16:38:18      0s] Copyright 2020 Cadence Design Systems, Inc. All rights reserved worldwide.
+[04/20 16:38:18      0s] 
+[04/20 16:38:18      0s] Version:	v20.14-s095_1, built Mon Apr 19 14:41:42 PDT 2021
+[04/20 16:38:18      0s] Options:	-files inv.tcl 
+[04/20 16:38:18      0s] Date:		Sun Apr 20 16:38:18 2025
+[04/20 16:38:18      0s] Host:		linux10.cse.cuhk.edu.hk (x86_64 w/Linux 3.10.0-1160.59.1.el7.x86_64) (6cores*24cpus*Intel(R) Xeon(R) CPU E5-2630 v2 @ 2.60GHz 15360KB)
+[04/20 16:38:18      0s] OS:		CentOS Linux release 7.9.2009 (Core)
+[04/20 16:38:18      0s] 
+[04/20 16:38:18      0s] License:
+[04/20 16:38:18      0s] 		invs	Innovus Implementation System	20.1	checkout succeeded
+[04/20 16:38:18      0s] 		8 CPU jobs allowed with the current license(s). Use setMultiCpuUsage to set your required CPU count.
+[04/20 16:41:01     28s] @(#)CDS: Innovus v20.14-s095_1 (64bit) 04/19/2021 14:41 (Linux 2.6.32-431.11.2.el6.x86_64)
+[04/20 16:41:01     28s] @(#)CDS: NanoRoute 20.14-s095_1 NR210411-1939/20_14-UB (database version 18.20.547) {superthreading v2.13}
+[04/20 16:41:01     28s] @(#)CDS: AAE 20.14-s018 (64bit) 04/19/2021 (Linux 2.6.32-431.11.2.el6.x86_64)
+[04/20 16:41:01     28s] @(#)CDS: CTE 20.14-s027_1 () Apr 13 2021 21:29:07 ( )
+[04/20 16:41:01     28s] @(#)CDS: SYNTECH 20.14-s017_1 () Mar 25 2021 13:07:27 ( )
+[04/20 16:41:01     28s] @(#)CDS: CPE v20.14-s080
+[04/20 16:41:01     28s] @(#)CDS: IQuantus/TQuantus 20.1.1-s460 (64bit) Fri Mar 5 18:46:16 PST 2021 (Linux 2.6.32-431.11.2.el6.x86_64)
+[04/20 16:41:01     28s] @(#)CDS: OA 22.60-p052 Thu Feb 25 10:35:13 2021
+[04/20 16:41:01     28s] @(#)CDS: SGN 20.10-d001 (01-Jun-2020) (64 bit executable, Qt5.9.0)
+[04/20 16:41:01     28s] @(#)CDS: RCDB 11.15.0
+[04/20 16:41:01     28s] @(#)CDS: STYLUS 20.10-p026_1 (03/12/2021 08:04 PST)
+[04/20 16:41:02     28s] Create and set the environment variable TMPDIR to /tmp/innovus_temp_32287_linux10.cse.cuhk.edu.hk_chyu2_uD9k9e.
+
+[04/20 16:41:02     28s] Change the soft stacksize limit to 0.2%RAM (515 mbytes). Set global soft_stack_size_limit to change the value.
+[04/20 16:41:57     32s] 
+[04/20 16:41:57     32s] **INFO:  MMMC transition support version v31-84 
+[04/20 16:41:57     32s] 
+[04/20 16:41:57     32s] <CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+[04/20 16:41:57     32s] <CMD> suppressMessage ENCEXT-2799
+[04/20 16:42:03     32s] Sourcing file "inv.tcl" ...
+[04/20 16:42:03     32s] <CMD> setMultiCpuUsage -localCpu 8
+[04/20 16:42:03     32s] <CMD> set init_verilog cla4_synth.v
+[04/20 16:42:03     32s] <CMD> set init_top_cell cla4
+[04/20 16:42:03     32s] <CMD> set init_lef_file FreePDK45/gscl45nm.lef
+[04/20 16:42:03     32s] <CMD> set init_pwr_net vdd
+[04/20 16:42:03     32s] <CMD> set init_gnd_net gnd
+[04/20 16:42:03     32s] <CMD> set init_mmmc_file mmmc.tcl
+[04/20 16:42:03     32s] <CMD> floorPlan -r 1.0 8.50 4.0 4.0 4.0 4.0
+[04/20 16:42:05     32s] **ERROR: Design must be in memory before running "floorPlan"
+[04/20 16:42:05     32s] **ERROR: (IMPSYT-6692):	Invalid return code while executing 'inv.tcl' was returned and script processing was stopped. Review the following error in 'inv.tcl' then restart.
+[04/20 16:42:05     32s] **ERROR: (IMPSYT-6693):	Error message: inv.tcl: Design must be in memory before running "floorPlan".
+[04/20 16:42:06     32s] <CMD> win
+[04/20 16:48:44     81s] <CMD> setMultiCpuUsage -localCpu 8
+[04/20 16:48:44     81s] <CMD> set init_verilog cla4_synth.v
+[04/20 16:48:44     81s] <CMD> set init_top_cell cla4
+[04/20 16:48:44     81s] <CMD> set init_lef_file FreePDK45/gscl45nm.lef
+[04/20 16:48:44     81s] <CMD> set init_pwr_net vdd
+[04/20 16:48:44     81s] <CMD> set init_gnd_net gnd
+[04/20 16:48:44     81s] <CMD> set init_mmmc_file mmmc.tcl
+[04/20 16:48:44     81s] <CMD> init_design
+[04/20 16:48:46     82s] #% Begin Load MMMC data ... (date=04/20 16:48:46, mem=203.1M)
+[04/20 16:48:46     82s] #% End Load MMMC data ... (date=04/20 16:48:46, total cpu=0:00:00.1, real=0:00:00.0, peak res=213.8M, current mem=213.8M)
+[04/20 16:48:47     82s] 
+[04/20 16:48:47     82s] Loading LEF file FreePDK45/gscl45nm.lef ...
+[04/20 16:48:47     82s] **WARN: (IMPLF-155):	ViaRule only supports routing/cut layer, but poly layer found for viaRule 'M1_POLY', 
+[04/20 16:48:47     82s] Set DBUPerIGU to M2 pitch 380.
+[04/20 16:48:47     82s] 
+[04/20 16:48:47     82s] viaInitial starts at Sun Apr 20 16:48:47 2025
+viaInitial ends at Sun Apr 20 16:48:47 2025
+
+##  Check design process and node:  
+##  Both design process and tech node are not set.
+
+[04/20 16:48:48     82s] Loading view definition file from mmmc.tcl
+[04/20 16:48:48     82s] Starting library reading in 'Multi-threaded flow' (with '8' threads)
+[04/20 16:48:52     83s] Reading libs_typical timing library /data/d0/y22/chyu2/ceng4120/25hw3/FreePDK45/gscl45nm.lib.
+[04/20 16:48:52     83s] Read 31 cells in library gscl45nm.
+[04/20 16:48:52     83s] Library reading multithread flow ended.
+[04/20 16:48:53     83s] Ending "PreSetAnalysisView" (total cpu=0:00:01.1, real=0:00:05.0, peak res=246.0M, current mem=198.5M)
+[04/20 16:48:54     83s] *** End library_loading (cpu=0.02min, real=0.10min, mem=41.5M, fe_cpu=1.39min, fe_real=10.60min, fe_mem=929.8M) ***
+[04/20 16:48:54     83s] #% Begin Load netlist data ... (date=04/20 16:48:54, mem=198.7M)
+[04/20 16:48:54     83s] *** Begin netlist parsing (mem=929.8M) ***
+[04/20 16:48:54     83s] **WARN: (IMPVL-159):	Pin 'gnd' of cell 'XOR2X1' is defined in LEF but not in the timing library.
+[04/20 16:48:54     83s] Type 'man IMPVL-159' for more detail.
+[04/20 16:48:54     83s] **WARN: (IMPVL-159):	Pin 'vdd' of cell 'XOR2X1' is defined in LEF but not in the timing library.
+[04/20 16:48:54     83s] Type 'man IMPVL-159' for more detail.
+[04/20 16:48:54     83s] **WARN: (IMPVL-159):	Pin 'gnd' of cell 'XNOR2X1' is defined in LEF but not in the timing library.
+[04/20 16:48:54     83s] Type 'man IMPVL-159' for more detail.
+[04/20 16:48:54     83s] **WARN: (IMPVL-159):	Pin 'vdd' of cell 'XNOR2X1' is defined in LEF but not in the timing library.
+[04/20 16:48:54     83s] Type 'man IMPVL-159' for more detail.
+[04/20 16:48:54     83s] **WARN: (IMPVL-159):	Pin 'gnd' of cell 'TBUFX2' is defined in LEF but not in the timing library.
+[04/20 16:48:54     83s] Type 'man IMPVL-159' for more detail.
+[04/20 16:48:54     83s] **WARN: (IMPVL-159):	Pin 'vdd' of cell 'TBUFX2' is defined in LEF but not in the timing library.
+[04/20 16:48:54     83s] Type 'man IMPVL-159' for more detail.
+[04/20 16:48:54     83s] **WARN: (IMPVL-159):	Pin 'gnd' of cell 'TBUFX1' is defined in LEF but not in the timing library.
+[04/20 16:48:54     83s] Type 'man IMPVL-159' for more detail.
+[04/20 16:48:54     83s] **WARN: (IMPVL-159):	Pin 'vdd' of cell 'TBUFX1' is defined in LEF but not in the timing library.
+[04/20 16:48:54     83s] Type 'man IMPVL-159' for more detail.
+[04/20 16:48:54     83s] **WARN: (IMPVL-159):	Pin 'gnd' of cell 'OR2X2' is defined in LEF but not in the timing library.
+[04/20 16:48:54     83s] Type 'man IMPVL-159' for more detail.
+[04/20 16:48:54     83s] **WARN: (IMPVL-159):	Pin 'vdd' of cell 'OR2X2' is defined in LEF but not in the timing library.
+[04/20 16:48:54     83s] Type 'man IMPVL-159' for more detail.
+[04/20 16:48:54     83s] **WARN: (IMPVL-159):	Pin 'gnd' of cell 'OR2X1' is defined in LEF but not in the timing library.
+[04/20 16:48:54     83s] Type 'man IMPVL-159' for more detail.
+[04/20 16:48:54     83s] **WARN: (IMPVL-159):	Pin 'vdd' of cell 'OR2X1' is defined in LEF but not in the timing library.
+[04/20 16:48:54     83s] Type 'man IMPVL-159' for more detail.
+[04/20 16:48:54     83s] **WARN: (IMPVL-159):	Pin 'gnd' of cell 'OAI21X1' is defined in LEF but not in the timing library.
+[04/20 16:48:54     83s] Type 'man IMPVL-159' for more detail.
+[04/20 16:48:54     83s] **WARN: (IMPVL-159):	Pin 'vdd' of cell 'OAI21X1' is defined in LEF but not in the timing library.
+[04/20 16:48:54     83s] Type 'man IMPVL-159' for more detail.
+[04/20 16:48:54     83s] **WARN: (IMPVL-159):	Pin 'gnd' of cell 'NOR3X1' is defined in LEF but not in the timing library.
+[04/20 16:48:54     83s] Type 'man IMPVL-159' for more detail.
+[04/20 16:48:54     83s] **WARN: (IMPVL-159):	Pin 'vdd' of cell 'NOR3X1' is defined in LEF but not in the timing library.
+[04/20 16:48:54     83s] Type 'man IMPVL-159' for more detail.
+[04/20 16:48:54     83s] **WARN: (IMPVL-159):	Pin 'gnd' of cell 'NOR2X1' is defined in LEF but not in the timing library.
+[04/20 16:48:54     83s] Type 'man IMPVL-159' for more detail.
+[04/20 16:48:54     83s] **WARN: (IMPVL-159):	Pin 'vdd' of cell 'NOR2X1' is defined in LEF but not in the timing library.
+[04/20 16:48:54     83s] Type 'man IMPVL-159' for more detail.
+[04/20 16:48:54     83s] **WARN: (IMPVL-159):	Pin 'gnd' of cell 'NAND3X1' is defined in LEF but not in the timing library.
+[04/20 16:48:54     83s] Type 'man IMPVL-159' for more detail.
+[04/20 16:48:54     83s] **WARN: (IMPVL-159):	Pin 'vdd' of cell 'NAND3X1' is defined in LEF but not in the timing library.
+[04/20 16:48:54     83s] Type 'man IMPVL-159' for more detail.
+[04/20 16:48:54     83s] **WARN: (EMS-27):	Message (IMPVL-159) has exceeded the current message display limit of 20.
+[04/20 16:48:54     83s] To increase the message display limit, refer to the product command reference manual.
+[04/20 16:48:54     83s] Created 31 new cells from 1 timing libraries.
+[04/20 16:48:54     83s] Reading netlist ...
+[04/20 16:48:54     83s] Backslashed names will retain backslash and a trailing blank character.
+[04/20 16:48:54     83s] Reading verilog netlist 'cla4_synth.v'
+[04/20 16:48:54     83s] 
+[04/20 16:48:54     83s] *** Memory Usage v#1 (Current mem = 929.832M, initial mem = 284.219M) ***
+[04/20 16:48:54     83s] *** End netlist parsing (cpu=0:00:00.0, real=0:00:00.0, mem=929.8M) ***
+[04/20 16:48:54     83s] #% End Load netlist data ... (date=04/20 16:48:54, total cpu=0:00:00.0, real=0:00:00.0, peak res=200.7M, current mem=200.7M)
+[04/20 16:48:54     83s] Set top cell to cla4.
+[04/20 16:49:02     83s] Hooked 31 DB cells to tlib cells.
+[04/20 16:49:02     83s] Ending "BindLib:" (total cpu=0:00:00.0, real=0:00:01.0, peak res=206.3M, current mem=206.3M)
+[04/20 16:49:02     83s] Starting recursive module instantiation check.
+[04/20 16:49:02     83s] No recursion found.
+[04/20 16:49:02     83s] Building hierarchical netlist for Cell cla4 ...
+[04/20 16:49:02     83s] *** Netlist is unique.
+[04/20 16:49:02     83s] Set DBUPerIGU to techSite CoreSite width 760.
+[04/20 16:49:02     83s] Setting Std. cell height to 4940 DBU (smallest netlist inst).
+[04/20 16:49:02     83s] ** info: there are 46 modules.
+[04/20 16:49:02     83s] ** info: there are 49 stdCell insts.
+[04/20 16:49:03     84s] 
+[04/20 16:49:03     84s] *** Memory Usage v#1 (Current mem = 948.246M, initial mem = 284.219M) ***
+[04/20 16:49:04     84s] Horizontal Layer M1 offset = 190 (guessed)
+[04/20 16:49:04     84s] Vertical Layer M2 offset = 190 (guessed)
+[04/20 16:49:04     84s] Suggestion: specify LAYER OFFSET in LEF file
+[04/20 16:49:04     84s] Reason: hard to extract LAYER OFFSET from standard cells
+[04/20 16:49:04     84s] Generated pitch 1.68 in metal10 is different from 1.71 defined in technology file in preferred direction.
+[04/20 16:49:04     84s] Generated pitch 0.84 in metal8 is different from 0.855 defined in technology file in preferred direction.
+[04/20 16:49:04     84s] Generated pitch 0.95 in metal7 is different from 0.855 defined in technology file in preferred direction.
+[04/20 16:49:04     84s] Generated pitch 0.28 in metal6 is different from 0.285 defined in technology file in preferred direction.
+[04/20 16:49:04     84s] Generated pitch 0.28 in metal4 is different from 0.285 defined in technology file in preferred direction.
+[04/20 16:49:04     84s] Set Default Net Delay as 1000 ps.
+[04/20 16:49:04     84s] Set Default Net Load as 0.5 pF. 
+[04/20 16:49:04     84s] Set Default Input Pin Transition as 0.1 ps.
+[04/20 16:49:26     87s] Extraction setup Started 
+[04/20 16:49:27     87s] Initializing multi-corner RC extraction with 1 active RC Corners ...
+[04/20 16:49:27     87s] **WARN: (IMPEXT-2773):	The via resistance between layers M0 and M1 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+[04/20 16:49:27     87s] Type 'man IMPEXT-2773' for more detail.
+[04/20 16:49:27     87s] **WARN: (IMPEXT-2773):	The via resistance between layers M1 and M2 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+[04/20 16:49:27     87s] Type 'man IMPEXT-2773' for more detail.
+[04/20 16:49:27     87s] **WARN: (IMPEXT-2773):	The via resistance between layers M2 and M3 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+[04/20 16:49:27     87s] Type 'man IMPEXT-2773' for more detail.
+[04/20 16:49:27     87s] **WARN: (IMPEXT-2773):	The via resistance between layers M3 and M4 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+[04/20 16:49:27     87s] Type 'man IMPEXT-2773' for more detail.
+[04/20 16:49:27     87s] **WARN: (IMPEXT-2773):	The via resistance between layers M4 and M5 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+[04/20 16:49:27     87s] Type 'man IMPEXT-2773' for more detail.
+[04/20 16:49:27     87s] **WARN: (IMPEXT-2773):	The via resistance between layers M5 and M6 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+[04/20 16:49:27     87s] Type 'man IMPEXT-2773' for more detail.
+[04/20 16:49:27     87s] **WARN: (IMPEXT-2773):	The via resistance between layers M6 and M7 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+[04/20 16:49:27     87s] Type 'man IMPEXT-2773' for more detail.
+[04/20 16:49:27     87s] **WARN: (IMPEXT-2773):	The via resistance between layers M7 and M8 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+[04/20 16:49:27     87s] Type 'man IMPEXT-2773' for more detail.
+[04/20 16:49:28     87s] **WARN: (IMPEXT-2773):	The via resistance between layers M8 and M9 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+[04/20 16:49:28     87s] Type 'man IMPEXT-2773' for more detail.
+[04/20 16:49:28     87s] **WARN: (IMPEXT-2773):	The via resistance between layers M9 and M10 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+[04/20 16:49:28     87s] Type 'man IMPEXT-2773' for more detail.
+[04/20 16:49:28     87s] **WARN: (IMPEXT-2766):	The sheet resistance for layer M1 is not defined in the cap table. Therefore, the LEF value 0.38 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+[04/20 16:49:28     87s] **WARN: (IMPEXT-2766):	The sheet resistance for layer M2 is not defined in the cap table. Therefore, the LEF value 0.25 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+[04/20 16:49:28     87s] **WARN: (IMPEXT-2766):	The sheet resistance for layer M3 is not defined in the cap table. Therefore, the LEF value 0.25 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+[04/20 16:49:28     87s] **WARN: (IMPEXT-2766):	The sheet resistance for layer M4 is not defined in the cap table. Therefore, the LEF value 0.25 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+[04/20 16:49:28     87s] **WARN: (IMPEXT-2766):	The sheet resistance for layer M5 is not defined in the cap table. Therefore, the LEF value 0.25 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+[04/20 16:49:28     87s] **WARN: (IMPEXT-2766):	The sheet resistance for layer M6 is not defined in the cap table. Therefore, the LEF value 0.25 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+[04/20 16:49:28     87s] **WARN: (IMPEXT-2766):	The sheet resistance for layer M7 is not defined in the cap table. Therefore, the LEF value 0.25 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+[04/20 16:49:28     87s] **WARN: (IMPEXT-2766):	The sheet resistance for layer M8 is not defined in the cap table. Therefore, the LEF value 0.25 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+[04/20 16:49:28     87s] **WARN: (IMPEXT-2766):	The sheet resistance for layer M9 is not defined in the cap table. Therefore, the LEF value 0.21 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+[04/20 16:49:28     87s] **WARN: (IMPEXT-2766):	The sheet resistance for layer M10 is not defined in the cap table. Therefore, the LEF value 0.21 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+[04/20 16:49:28     87s] Summary of Active RC-Corners : 
+[04/20 16:49:28     87s]  
+[04/20 16:49:28     87s]  Analysis View: analysis_default
+[04/20 16:49:28     87s]     RC-Corner Name        : default_rc_corner
+[04/20 16:49:28     87s]     RC-Corner Index       : 0
+[04/20 16:49:28     87s]     RC-Corner Temperature : 25 Celsius
+[04/20 16:49:28     87s]     RC-Corner Cap Table   : ''
+[04/20 16:49:28     87s]     RC-Corner PreRoute Res Factor         : 1
+[04/20 16:49:28     87s]     RC-Corner PreRoute Cap Factor         : 1
+[04/20 16:49:28     87s]     RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+[04/20 16:49:28     87s]     RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+[04/20 16:49:28     87s]     RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+[04/20 16:49:28     87s]     RC-Corner PreRoute Clock Res Factor   : 1
+[04/20 16:49:28     87s]     RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from Cap Table]
+[04/20 16:49:28     87s]     RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+[04/20 16:49:28     87s]     RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+[04/20 16:49:29     87s] LayerId::1 widthSet size::1
+[04/20 16:49:29     87s] LayerId::2 widthSet size::1
+[04/20 16:49:29     87s] LayerId::3 widthSet size::1
+[04/20 16:49:29     87s] LayerId::4 widthSet size::1
+[04/20 16:49:29     87s] LayerId::5 widthSet size::1
+[04/20 16:49:29     87s] LayerId::6 widthSet size::1
+[04/20 16:49:29     87s] LayerId::7 widthSet size::1
+[04/20 16:49:29     87s] LayerId::8 widthSet size::1
+[04/20 16:49:29     87s] LayerId::9 widthSet size::1
+[04/20 16:49:29     87s] LayerId::10 widthSet size::1
+[04/20 16:49:29     87s] Updating RC grid for preRoute extraction ...
+[04/20 16:49:29     87s] eee: pegSigSF::1.070000
+[04/20 16:49:29     87s] Initializing multi-corner resistance tables ...
+[04/20 16:49:30     87s] eee: l::1 avDens::0.000000 usedTrk::0.000000 availTrk::0.000000 sigTrk::0.000000
+[04/20 16:49:30     87s] eee: l::2 avDens::0.000000 usedTrk::0.000000 availTrk::0.000000 sigTrk::0.000000
+[04/20 16:49:30     87s] eee: l::3 avDens::0.000000 usedTrk::0.000000 availTrk::0.000000 sigTrk::0.000000
+[04/20 16:49:30     87s] eee: l::4 avDens::0.000000 usedTrk::0.000000 availTrk::0.000000 sigTrk::0.000000
+[04/20 16:49:30     87s] eee: l::5 avDens::0.000000 usedTrk::0.000000 availTrk::0.000000 sigTrk::0.000000
+[04/20 16:49:30     87s] eee: l::6 avDens::0.000000 usedTrk::0.000000 availTrk::0.000000 sigTrk::0.000000
+[04/20 16:49:30     87s] eee: l::7 avDens::0.000000 usedTrk::0.000000 availTrk::0.000000 sigTrk::0.000000
+[04/20 16:49:30     87s] eee: l::8 avDens::0.000000 usedTrk::0.000000 availTrk::0.000000 sigTrk::0.000000
+[04/20 16:49:30     87s] eee: l::9 avDens::0.000000 usedTrk::0.000000 availTrk::0.000000 sigTrk::0.000000
+[04/20 16:49:30     87s] eee: l::10 avDens::0.000000 usedTrk::0.000000 availTrk::0.000000 sigTrk::0.000000
+[04/20 16:49:30     87s] **Info: Trial Route has Max Route Layer 15/10.
+[04/20 16:49:30     87s] {RT default_rc_corner 0 10 10 {4 1} {7 0} {9 0} 3}
+[04/20 16:49:30     87s] Preroute length aware model : n: 40 ; LLS: 2-3 ; HLS: 3-5 ; rDens: 0.000000 ; uaWl: 0.000000 ; uaWlH: 0.000000 ; aWlH: 0.000000 ; Pmax: 0.850000 ; wcR: 0.000000 ; newSi: 0.000000 ; pMod: 82 ; 
+[04/20 16:49:30     87s] *Info: initialize multi-corner CTS.
+[04/20 16:49:33     87s] Ending "SetAnalysisView" (total cpu=0:00:00.3, real=0:00:03.0, peak res=236.1M, current mem=130.0M)
+[04/20 16:49:38     88s] Reading timing constraints file 'cla4_synth.sdc' ...
+[04/20 16:49:40     88s] Current (total cpu=0:01:29, real=0:11:22, peak res=279.6M, current mem=255.3M)
+[04/20 16:49:44     88s] **WARN: (TCLCMD-1461):	Skipped unsupported command: set_units (File cla4_synth.sdc, Line 8).
+[04/20 16:49:44     88s] 
+[04/20 16:49:44     88s] INFO (CTE): Reading of timing constraints file cla4_synth.sdc completed, with 1 WARNING
+[04/20 16:49:51     88s] Ending "Constraint file reading stats" (total cpu=0:00:00.3, real=0:00:11.0, peak res=275.9M, current mem=267.4M)
+[04/20 16:49:51     88s] Current (total cpu=0:01:29, real=0:11:33, peak res=279.6M, current mem=267.4M)
+[04/20 16:49:53     89s] Tech dependent Parameter, Build TLibAnalyzer for: cellAreaConsiderPadding
+[04/20 16:49:53     89s] 
+[04/20 16:49:53     89s] TimeStamp Creating Cell Server ...(0, 1, 1, 1) Begin ...
+[04/20 16:49:53     89s] Summary for sequential cells identification: 
+[04/20 16:49:53     89s]   Identified SBFF number: 3
+[04/20 16:49:53     89s]   Identified MBFF number: 0
+[04/20 16:49:53     89s]   Identified SB Latch number: 0
+[04/20 16:49:53     89s]   Identified MB Latch number: 0
+[04/20 16:49:53     89s]   Not identified SBFF number: 0
+[04/20 16:49:53     89s]   Not identified MBFF number: 0
+[04/20 16:49:53     89s]   Not identified SB Latch number: 0
+[04/20 16:49:53     89s]   Not identified MB Latch number: 0
+[04/20 16:49:53     89s]   Number of sequential cells which are not FFs: 1
+[04/20 16:49:53     89s] Total number of combinational cells: 25
+[04/20 16:49:53     89s] Total number of sequential cells: 4
+[04/20 16:49:53     89s] Total number of tristate cells: 2
+[04/20 16:49:53     89s] Total number of level shifter cells: 0
+[04/20 16:49:53     89s] Total number of power gating cells: 0
+[04/20 16:49:53     89s] Total number of isolation cells: 0
+[04/20 16:49:53     89s] Total number of power switch cells: 0
+[04/20 16:49:53     89s] Total number of pulse generator cells: 0
+[04/20 16:49:53     89s] Total number of always on buffers: 0
+[04/20 16:49:53     89s] Total number of retention cells: 0
+[04/20 16:49:53     89s] List of usable buffers: BUFX2 BUFX4
+[04/20 16:49:53     89s] Total number of usable buffers: 2
+[04/20 16:49:53     89s] List of unusable buffers:
+[04/20 16:49:53     89s] Total number of unusable buffers: 0
+[04/20 16:49:53     89s] List of usable inverters: INVX2 INVX1 INVX4 INVX8
+[04/20 16:49:53     89s] Total number of usable inverters: 4
+[04/20 16:49:53     89s] List of unusable inverters:
+[04/20 16:49:53     89s] Total number of unusable inverters: 0
+[04/20 16:49:53     89s] List of identified usable delay cells: CLKBUF1 CLKBUF2 CLKBUF3
+[04/20 16:49:53     89s] Total number of identified usable delay cells: 3
+[04/20 16:49:53     89s] List of identified unusable delay cells:
+[04/20 16:49:53     89s] Total number of identified unusable delay cells: 0
+[04/20 16:49:53     89s] 
+[04/20 16:49:53     89s] TimeStamp Creating Cell Server ...(0, 1, 1, 1) End ...
+[04/20 16:49:54     89s] 
+[04/20 16:49:54     89s] TimeStamp Deleting Cell Server Begin ...
+[04/20 16:49:54     89s] 
+[04/20 16:49:54     89s] TimeStamp Deleting Cell Server End ...
+[04/20 16:49:54     89s] Ending "Cell type marking" (total cpu=0:00:00.0, real=0:00:00.0, peak res=267.4M, current mem=241.7M)
+[04/20 16:49:54     89s] 
+[04/20 16:49:54     89s] TimeStamp Creating Cell Server ...(0, 0, 0, 0) Begin ...
+[04/20 16:49:54     89s] Summary for sequential cells identification: 
+[04/20 16:49:54     89s]   Identified SBFF number: 3
+[04/20 16:49:54     89s]   Identified MBFF number: 0
+[04/20 16:49:54     89s]   Identified SB Latch number: 0
+[04/20 16:49:54     89s]   Identified MB Latch number: 0
+[04/20 16:49:54     89s]   Not identified SBFF number: 0
+[04/20 16:49:54     89s]   Not identified MBFF number: 0
+[04/20 16:49:54     89s]   Not identified SB Latch number: 0
+[04/20 16:49:54     89s]   Not identified MB Latch number: 0
+[04/20 16:49:54     89s]   Number of sequential cells which are not FFs: 1
+[04/20 16:49:54     89s]  Visiting view : analysis_default
+[04/20 16:49:54     89s]    : PowerDomain = none : Weighted F : unweighted  = 46.10 (1.000) with rcCorner = 0
+[04/20 16:49:54     89s]    : PowerDomain = none : Weighted F : unweighted  = 2.30 (1.000) with rcCorner = -1
+[04/20 16:49:54     89s]  Visiting view : analysis_default
+[04/20 16:49:54     89s]    : PowerDomain = none : Weighted F : unweighted  = 46.10 (1.000) with rcCorner = 0
+[04/20 16:49:54     89s]    : PowerDomain = none : Weighted F : unweighted  = 2.30 (1.000) with rcCorner = -1
+[04/20 16:49:54     89s] TLC MultiMap info (StdDelay):
+[04/20 16:49:54     89s]   : delay_default + libs_typical + 1 + no RcCorner := 2.3ps
+[04/20 16:49:54     89s]   : delay_default + libs_typical + 1 + default_rc_corner := 46.1ps
+[04/20 16:49:54     89s]  Setting StdDelay to: 46.1ps
+[04/20 16:49:54     89s] 
+[04/20 16:49:54     89s] TimeStamp Creating Cell Server ...(0, 0, 0, 0) End ...
+[04/20 16:49:58     89s] 
+[04/20 16:49:58     89s] *** Summary of all messages that are not suppressed in this session:
+[04/20 16:49:58     89s] Severity  ID               Count  Summary                                  
+[04/20 16:49:58     89s] WARNING   IMPLF-155            1  ViaRule only supports routing/cut layer,...
+[04/20 16:49:58     89s] WARNING   IMPEXT-2766         10  The sheet resistance for layer %s is not...
+[04/20 16:49:58     89s] WARNING   IMPEXT-2773         10  The via resistance between layers %s and...
+[04/20 16:49:58     89s] WARNING   IMPVL-159           62  Pin '%s' of cell '%s' is defined in LEF ...
+[04/20 16:49:58     89s] WARNING   TCLCMD-1461          1  Skipped unsupported command: %s          
+[04/20 16:49:58     89s] *** Message Summary: 84 warning(s), 0 error(s)
+[04/20 16:49:58     89s] 
+[04/20 16:49:58     89s] <CMD> floorPlan -r 1.0 8.50 4.0 4.0 4.0 4.0
+[04/20 16:50:00     89s] Horizontal Layer M1 offset = 190 (guessed)
+[04/20 16:50:00     89s] Vertical Layer M2 offset = 190 (guessed)
+[04/20 16:50:00     89s] Suggestion: specify LAYER OFFSET in LEF file
+[04/20 16:50:00     89s] Reason: hard to extract LAYER OFFSET from standard cells
+[04/20 16:50:00     89s] Generated pitch 1.68 in metal10 is different from 1.71 defined in technology file in preferred direction.
+[04/20 16:50:00     89s] Generated pitch 0.84 in metal8 is different from 0.855 defined in technology file in preferred direction.
+[04/20 16:50:00     89s] Generated pitch 0.95 in metal7 is different from 0.855 defined in technology file in preferred direction.
+[04/20 16:50:00     89s] Generated pitch 0.28 in metal6 is different from 0.285 defined in technology file in preferred direction.
+[04/20 16:50:00     89s] Generated pitch 0.28 in metal4 is different from 0.285 defined in technology file in preferred direction.
+[04/20 16:50:00     89s] **WARN: (IMPFP-325):	Floorplan of the design is resized. All current floorplan objects are automatically derived based on specified new floorplan. This may change blocks, fixed standard cells, existing routes and blockages.
+[04/20 16:50:02     89s] <CMD> globalNetConnect vdd -type pgpin -pin vdd -inst *
+[04/20 16:50:02     89s] <CMD> globalNetConnect gnd -type pgpin -pin gnd -inst *
+[04/20 16:50:02     89s] <CMD> sroute -nets {vdd gnd}
+[04/20 16:50:02     89s] #% Begin sroute (date=04/20 16:50:02, mem=235.4M)
+[04/20 16:50:05     89s] *** Begin SPECIAL ROUTE on Sun Apr 20 16:50:05 2025 ***
+[04/20 16:50:05     89s] SPECIAL ROUTE ran on directory: /data/d0/y22/chyu2/ceng4120/25hw3
+[04/20 16:50:05     89s] SPECIAL ROUTE ran on machine: linux10.cse.cuhk.edu.hk (Linux 3.10.0-1160.59.1.el7.x86_64 Xeon 2.90Ghz)
+[04/20 16:50:05     89s] 
+[04/20 16:50:05     89s] Begin option processing ...
+[04/20 16:50:05     89s] srouteConnectPowerBump set to false
+[04/20 16:50:05     89s] routeSelectNet set to "vdd gnd"
+[04/20 16:50:05     89s] routeSpecial set to true
+[04/20 16:50:05     89s] srouteConnectConverterPin set to false
+[04/20 16:50:05     89s] srouteFollowCorePinEnd set to 3
+[04/20 16:50:05     89s] srouteJogControl set to "preferWithChanges differentLayer"
+[04/20 16:50:05     89s] sroutePadPinAllPorts set to true
+[04/20 16:50:05     89s] sroutePreserveExistingRoutes set to true
+[04/20 16:50:05     89s] srouteRoutePowerBarPortOnBothDir set to true
+[04/20 16:50:05     89s] End option processing: cpu: 0:00:00, real: 0:00:00, peak: 2438.00 megs.
+[04/20 16:50:05     89s] 
+[04/20 16:50:05     89s] Reading DB technology information...
+[04/20 16:50:05     89s] Finished reading DB technology information.
+[04/20 16:50:05     89s] Reading floorplan and netlist information...
+[04/20 16:50:06     89s] Finished reading floorplan and netlist information.
+[04/20 16:50:06     89s] Read in 21 layers, 10 routing layers, 1 overlap layer
+[04/20 16:50:06     89s] Read in 33 macros, 4 used
+[04/20 16:50:06     89s] Read in 4 components
+[04/20 16:50:06     89s]   4 core components: 4 unplaced, 0 placed, 0 fixed
+[04/20 16:50:06     89s] Read in 15 logical pins
+[04/20 16:50:06     89s] Read in 15 nets
+[04/20 16:50:06     89s] Read in 2 special nets
+[04/20 16:50:06     89s] Read in 8 terminals
+[04/20 16:50:06     89s] 2 nets selected.
+[04/20 16:50:06     89s] 
+[04/20 16:50:06     89s] Begin power routing ...
+[04/20 16:50:07     89s] #create default rule from bind_ndr_rule rule=0x7f94600b4ed0 0x7f943ccf8018
+[04/20 16:50:08     90s] ### import design signature (1): route=1 flt_obj=0 vio=1905142130 swire=1 shield_wire=1 net_attr=1 dirty_area=0 del_dirty_area=0 cell=0 placement=0 pin_access=1 inst_pattern=1 halo=0
+[04/20 16:50:08     90s] **WARN: (IMPSR-1254):	Unable to connect the specified objects, since block pins of the vdd net were not found in the design. Check netlist or change the parameter value to include block pins in the design.
+[04/20 16:50:08     90s] **WARN: (IMPSR-1256):	Unable to find any CORE class pad pin of the vdd net due to unavailability of the pin or check netlist in the routing area or layer. Change routing area or layer to include the expected pin or check netlist. Alternatively, change port class in the technology file.
+[04/20 16:50:08     90s] Type 'man IMPSR-1256' for more detail.
+[04/20 16:50:08     90s] Cannot find any AREAIO class pad pin of net vdd. Check net list, or change port class in the technology file, or change option to include pin in given range.
+[04/20 16:50:08     90s] **WARN: (IMPSR-1254):	Unable to connect the specified objects, since block pins of the gnd net were not found in the design. Check netlist or change the parameter value to include block pins in the design.
+[04/20 16:50:08     90s] **WARN: (IMPSR-1256):	Unable to find any CORE class pad pin of the gnd net due to unavailability of the pin or check netlist in the routing area or layer. Change routing area or layer to include the expected pin or check netlist. Alternatively, change port class in the technology file.
+[04/20 16:50:08     90s] Type 'man IMPSR-1256' for more detail.
+[04/20 16:50:08     90s] Cannot find any AREAIO class pad pin of net gnd. Check net list, or change port class in the technology file, or change option to include pin in given range.
+[04/20 16:50:08     90s] CPU time for FollowPin 0 seconds
+[04/20 16:50:08     90s] CPU time for FollowPin 0 seconds
+[04/20 16:50:08     90s]   Number of IO ports routed: 0
+[04/20 16:50:08     90s]   Number of Block ports routed: 0
+[04/20 16:50:08     90s]   Number of Stripe ports routed: 0
+[04/20 16:50:08     90s]   Number of Core ports routed: 0  open: 6
+[04/20 16:50:08     90s]   Number of Pad ports routed: 0
+[04/20 16:50:08     90s]   Number of Power Bump ports routed: 0
+[04/20 16:50:08     90s]   Number of Followpin connections: 3
+[04/20 16:50:08     90s] End power routing: cpu: 0:00:00, real: 0:00:02, peak: 2489.00 megs.
+[04/20 16:50:08     90s] 
+[04/20 16:50:08     90s] 
+[04/20 16:50:08     90s] 
+[04/20 16:50:08     90s]  Begin updating DB with routing results ...
+[04/20 16:50:08     90s]  Updating DB with 0 via definition ...Extracting standard cell pins and blockage ...... 
+[04/20 16:50:09     90s] Pin and blockage extraction finished
+[04/20 16:50:09     90s] 
+[04/20 16:50:09     90s] sroute created 3 wires.
+[04/20 16:50:09     90s] ViaGen created 0 via, deleted 0 via to avoid violation.
+[04/20 16:50:09     90s] +--------+----------------+----------------+
+[04/20 16:50:09     90s] |  Layer |     Created    |     Deleted    |
+[04/20 16:50:09     90s] +--------+----------------+----------------+
+[04/20 16:50:09     90s] | metal1 |        3       |       NA       |
+[04/20 16:50:09     90s] +--------+----------------+----------------+
+[04/20 16:50:09     90s] #% End sroute (date=04/20 16:50:09, total cpu=0:00:00.4, real=0:00:07.0, peak res=246.5M, current mem=246.5M)
+[04/20 16:50:09     90s] <CMD> addRing -center 1 -spacing 0.5 -width 0.5 -layer {top 3 bottom 3 left 4 right 4} -nets {gnd vdd}
+[04/20 16:50:09     90s] #% Begin addRing (date=04/20 16:50:09, mem=246.5M)
+[04/20 16:50:10     90s] 
+[04/20 16:50:10     90s] Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1262.0M)
+[04/20 16:50:11     90s] Ring generation is complete.
+[04/20 16:50:11     90s] vias are now being generated.
+[04/20 16:50:11     90s] addRing created 8 wires.
+[04/20 16:50:11     90s] ViaGen created 8 vias, deleted 0 via to avoid violation.
+[04/20 16:50:11     90s] +--------+----------------+----------------+
+[04/20 16:50:11     90s] |  Layer |     Created    |     Deleted    |
+[04/20 16:50:11     90s] +--------+----------------+----------------+
+[04/20 16:50:11     90s] | metal3 |        4       |       NA       |
+[04/20 16:50:11     90s] |  via3  |        8       |        0       |
+[04/20 16:50:11     90s] | metal4 |        4       |       NA       |
+[04/20 16:50:11     90s] +--------+----------------+----------------+
+[04/20 16:50:11     90s] #% End addRing (date=04/20 16:50:11, total cpu=0:00:00.1, real=0:00:02.0, peak res=246.5M, current mem=244.3M)
+[04/20 16:50:11     90s] <CMD> addStripe -nets {vdd gnd} -layer 4 -direction vertical -width 0.4 -spacing 0.5 -set_to_set_distance 5 -start 0.5
+[04/20 16:50:11     90s] #% Begin addStripe (date=04/20 16:50:11, mem=244.3M)
+[04/20 16:50:11     90s] 
+[04/20 16:50:11     90s] Initialize fgc environment(mem: 1262.0M) ...  fail and won't use fgc to check drc(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1262.0M)
+[04/20 16:50:11     90s] Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1262.0M)
+[04/20 16:50:11     90s] Loading wires (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1262.0M)
+[04/20 16:50:11     90s] Loading via instances (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1262.0M)
+[04/20 16:50:11     90s] Starting stripe generation ...
+[04/20 16:50:11     90s] Non-Default Mode Option Settings :
+[04/20 16:50:11     90s]   NONE
+[04/20 16:50:11     90s] Multi-CPU acceleration using 8 CPU(s).
+[04/20 16:50:14     90s] Stripe generation is complete.
+[04/20 16:50:14     90s] vias are now being generated.
+[04/20 16:50:14     90s] Multi-CPU acceleration using 8 CPU(s).
+[04/20 16:50:18     90s] Multi-CPU acceleration using 8 CPU(s).
+[04/20 16:50:21     91s] Multi-CPU acceleration using 8 CPU(s).
+[04/20 16:50:23     91s] Multi-CPU acceleration using 8 CPU(s).
+[04/20 16:50:27     91s] addStripe created 2 wires.
+[04/20 16:50:27     91s] ViaGen created 13 vias, deleted 0 via to avoid violation.
+[04/20 16:50:27     91s] +--------+----------------+----------------+
+[04/20 16:50:27     91s] |  Layer |     Created    |     Deleted    |
+[04/20 16:50:27     91s] +--------+----------------+----------------+
+[04/20 16:50:27     91s] |  via1  |        3       |        0       |
+[04/20 16:50:27     91s] |  via2  |        3       |        0       |
+[04/20 16:50:27     91s] |  via3  |        7       |        0       |
+[04/20 16:50:27     91s] | metal4 |        2       |       NA       |
+[04/20 16:50:27     91s] +--------+----------------+----------------+
+[04/20 16:50:27     91s] #% End addStripe (date=04/20 16:50:27, total cpu=0:00:01.2, real=0:00:16.0, peak res=244.3M, current mem=241.0M)
+[04/20 16:50:27     91s] <CMD> addStripe -nets {vdd gnd} -layer 3 -direction horizontal -width 0.4 -spacing 0.5 -set_to_set_distance 5 -start 0.5
+[04/20 16:50:27     91s] #% Begin addStripe (date=04/20 16:50:27, mem=241.0M)
+[04/20 16:50:27     91s] 
+[04/20 16:50:27     91s] Initialize fgc environment(mem: 1262.0M) ...  fail and won't use fgc to check drc(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1262.0M)
+[04/20 16:50:27     91s] Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1262.0M)
+[04/20 16:50:27     91s] Loading wires (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1262.0M)
+[04/20 16:50:27     91s] Loading via instances (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1262.0M)
+[04/20 16:50:27     91s] Starting stripe generation ...
+[04/20 16:50:27     91s] Non-Default Mode Option Settings :
+[04/20 16:50:27     91s]   NONE
+[04/20 16:50:27     91s] Multi-CPU acceleration using 8 CPU(s).
+[04/20 16:50:30     91s] Stripe generation is complete.
+[04/20 16:50:30     91s] vias are now being generated.
+[04/20 16:50:30     91s] Multi-CPU acceleration using 8 CPU(s).
+[04/20 16:50:32     91s] Multi-CPU acceleration using 8 CPU(s).
+[04/20 16:50:32     91s] **WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer metal3 & metal1 at (4.18, 6.59) (10.26, 6.72).
+[04/20 16:50:32     91s] **WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer metal3 & metal1 at (4.18, 6.59) (10.26, 6.72).
+[04/20 16:50:36     92s] Multi-CPU acceleration using 8 CPU(s).
+[04/20 16:50:38     92s] Multi-CPU acceleration using 8 CPU(s).
+[04/20 16:50:40     92s] addStripe created 2 wires.
+[04/20 16:50:40     92s] ViaGen created 6 vias, deleted 1 via to avoid violation.
+[04/20 16:50:40     92s] +--------+----------------+----------------+
+[04/20 16:50:40     92s] |  Layer |     Created    |     Deleted    |
+[04/20 16:50:40     92s] +--------+----------------+----------------+
+[04/20 16:50:40     92s] | metal3 |        2       |       NA       |
+[04/20 16:50:40     92s] |  via3  |        6       |        1       |
+[04/20 16:50:40     92s] +--------+----------------+----------------+
+[04/20 16:50:40     92s] #% End addStripe (date=04/20 16:50:40, total cpu=0:00:01.1, real=0:00:13.0, peak res=241.0M, current mem=237.0M)
+[04/20 16:50:40     92s] <CMD> place_design
+[04/20 16:50:43     92s] [check_scan_connected]: number of scan connected with missing definition = 0, number of scan = 0, number of sequential = 29, percentage of missing scan cell = 0.00% (0 / 29)
+[04/20 16:50:50     93s] ### Time Record (colorize_geometry) is installed.
+[04/20 16:50:50     93s] #Start colorize_geometry on Sun Apr 20 16:50:50 2025
+[04/20 16:50:50     93s] #
+[04/20 16:50:50     93s] ### Time Record (Pre Callback) is installed.
+[04/20 16:50:50     93s] ### Time Record (Pre Callback) is uninstalled.
+[04/20 16:50:50     93s] ### Time Record (DB Import) is installed.
+[04/20 16:50:51     93s] #WARNING (NRDB-976) The TRACK STEP 0.2800 for preferred direction tracks is smaller than the PITCH 0.2850 for LAYER metal4. This will cause routability problems for NanoRoute.
+[04/20 16:50:51     93s] #WARNING (NRDB-976) The TRACK STEP 0.2800 for preferred direction tracks is smaller than the PITCH 0.2850 for LAYER metal6. This will cause routability problems for NanoRoute.
+[04/20 16:50:51     93s] #WARNING (NRDB-976) The TRACK STEP 0.8400 for preferred direction tracks is smaller than the PITCH 0.8550 for LAYER metal8. This will cause routability problems for NanoRoute.
+[04/20 16:50:51     93s] #WARNING (NRDB-976) The TRACK STEP 1.6800 for preferred direction tracks is smaller than the PITCH 1.7100 for LAYER metal10. This will cause routability problems for NanoRoute.
+[04/20 16:50:51     93s] ### import design signature (2): route=1 flt_obj=0 vio=1905142130 swire=1 shield_wire=1 net_attr=1 dirty_area=0 del_dirty_area=0 cell=1080326978 placement=984943660 pin_access=1 inst_pattern=1 halo=0
+[04/20 16:50:51     93s] ### Time Record (DB Import) is uninstalled.
+[04/20 16:50:51     93s] ### Time Record (DB Export) is installed.
+[04/20 16:50:51     93s] Extracting standard cell pins and blockage ...... 
+[04/20 16:50:51     93s] Pin and blockage extraction finished
+[04/20 16:50:51     93s] ### export design design signature (3): route=1 flt_obj=0 vio=1905142130 swire=1 shield_wire=1 net_attr=1 dirty_area=0 del_dirty_area=0 cell=1080326978 placement=984943660 pin_access=1 inst_pattern=1 halo=0
+[04/20 16:50:51     93s] ### Time Record (DB Export) is uninstalled.
+[04/20 16:50:51     93s] ### Time Record (Post Callback) is installed.
+[04/20 16:50:51     93s] ### Time Record (Post Callback) is uninstalled.
+[04/20 16:50:51     93s] #
+[04/20 16:50:51     93s] #colorize_geometry statistics:
+[04/20 16:50:51     93s] #Cpu time = 00:00:00
+[04/20 16:50:51     93s] #Elapsed time = 00:00:01
+[04/20 16:50:51     93s] #Increased memory = -1.21 (MB)
+[04/20 16:50:51     93s] #Total memory = 265.88 (MB)
+[04/20 16:50:51     93s] #Peak memory = 282.95 (MB)
+[04/20 16:50:51     93s] #Number of warnings = 4
+[04/20 16:50:51     93s] #Total number of warnings = 4
+[04/20 16:50:51     93s] #Number of fails = 0
+[04/20 16:50:51     93s] #Total number of fails = 0
+[04/20 16:50:51     93s] #Complete colorize_geometry on Sun Apr 20 16:50:51 2025
+[04/20 16:50:51     93s] #
+[04/20 16:50:51     93s] ### import design signature (4): route=1 flt_obj=0 vio=1905142130 swire=1 shield_wire=1 net_attr=1 dirty_area=0 del_dirty_area=0 cell=0 placement=0 pin_access=1 inst_pattern=1 halo=0
+[04/20 16:50:51     93s] ### Time Record (colorize_geometry) is uninstalled.
+[04/20 16:50:51     93s] ### 
+[04/20 16:50:51     93s] ###   Scalability Statistics
+[04/20 16:50:51     93s] ### 
+[04/20 16:50:51     93s] ### ------------------------+----------------+----------------+----------------+
+[04/20 16:50:51     93s] ###   colorize_geometry     |        cpu time|    elapsed time|     scalability|
+[04/20 16:50:51     93s] ### ------------------------+----------------+----------------+----------------+
+[04/20 16:50:51     93s] ###   Pre Callback          |        00:00:00|        00:00:00|             1.0|
+[04/20 16:50:51     93s] ###   Post Callback         |        00:00:00|        00:00:00|             1.0|
+[04/20 16:50:51     93s] ###   DB Import             |        00:00:00|        00:00:01|             1.0|
+[04/20 16:50:51     93s] ###   DB Export             |        00:00:00|        00:00:00|             1.0|
+[04/20 16:50:51     93s] ###   Entire Command        |        00:00:00|        00:00:01|             0.1|
+[04/20 16:50:51     93s] ### ------------------------+----------------+----------------+----------------+
+[04/20 16:50:51     93s] ### 
+[04/20 16:50:52     94s] *** Starting placeDesign default flow ***
+[04/20 16:50:55     94s] **Info: Trial Route has Max Route Layer 15/10.
+[04/20 16:50:55     94s] ### Creating LA Mngr. totSessionCpu=0:01:35 mem=1230.0M
+[04/20 16:50:55     94s] ### Creating LA Mngr, finished. totSessionCpu=0:01:35 mem=1230.0M
+[04/20 16:50:55     94s] *** Start deleteBufferTree ***
+[04/20 16:50:59     95s] Multithreaded Timing Analysis is initialized with 8 threads
+[04/20 16:50:59     95s] 
+[04/20 16:50:59     95s] Info: Detect buffers to remove automatically.
+[04/20 16:50:59     95s] Analyzing netlist ...
+[04/20 16:50:59     95s] Updating netlist
+[04/20 16:50:59     95s] 
+[04/20 16:51:01     95s] *summary: 0 instances (buffers/inverters) removed
+[04/20 16:51:01     95s] *** Finish deleteBufferTree (0:00:01.0) ***
+[04/20 16:51:01     95s] 
+[04/20 16:51:01     95s] TimeStamp Deleting Cell Server Begin ...
+[04/20 16:51:01     95s] 
+[04/20 16:51:01     95s] TimeStamp Deleting Cell Server End ...
+[04/20 16:51:04     95s] **INFO: Enable pre-place timing setting for timing analysis
+[04/20 16:51:04     95s] Set Using Default Delay Limit as 101.
+[04/20 16:51:04     95s] **WARN: (IMPDC-1629):	The default delay limit was set to 101. This is less than the default of 1000 and may result in inaccurate delay calculation for nets with a fanout higher than the setting.  If needed, the default delay limit may be adjusted by running the command 'set delaycal_use_default_delay_limit'.
+[04/20 16:51:05     95s] Set Default Net Delay as 0 ps.
+[04/20 16:51:05     95s] Set Default Net Load as 0 pF. 
+[04/20 16:51:06     95s] **INFO: Analyzing IO path groups for slack adjustment
+[04/20 16:51:08     95s] Effort level <high> specified for reg2reg_tmp.32287 path_group
+[04/20 16:51:17     97s] AAE DB initialization (MEM=1278.3 CPU=0:00:00.1 REAL=0:00:01.0) 
+[04/20 16:51:18     97s] #################################################################################
+[04/20 16:51:18     97s] # Design Stage: PreRoute
+[04/20 16:51:18     97s] # Design Name: cla4
+[04/20 16:51:18     97s] # Design Mode: 90nm
+[04/20 16:51:18     97s] # Analysis Mode: MMMC Non-OCV 
+[04/20 16:51:18     97s] # Parasitics Mode: No SPEF/RCDB 
+[04/20 16:51:18     97s] # Signoff Settings: SI Off 
+[04/20 16:51:18     97s] #################################################################################
+[04/20 16:51:18     97s] Topological Sorting (REAL = 0:00:00.0, MEM = 1288.3M, InitMEM = 1286.3M)
+[04/20 16:51:19     97s] Calculate delays in Single mode...
+[04/20 16:51:19     97s] Start delay calculation (fullDC) (8 T). (MEM=1288.32)
+[04/20 16:51:22     97s] siFlow : Timing analysis mode is single, using late cdB files
+[04/20 16:51:23     97s] Start AAE Lib Loading. (MEM=1299.83)
+[04/20 16:51:23     97s] End AAE Lib Loading. (MEM=1318.91 CPU=0:00:00.0 Real=0:00:00.0)
+[04/20 16:51:23     97s] End AAE Lib Interpolated Model. (MEM=1318.91 CPU Time=0:00:00.0, Real Time=0:00:00.0)
+[04/20 16:51:27     97s] First Iteration Infinite Tw... 
+[04/20 16:51:29     98s] Total number of fetched objects 59
+[04/20 16:51:29     98s] End Timing Check Calculation. (CPU Time=0:00:00.0, Real Time=0:00:00.0)
+[04/20 16:51:29     98s] End delay calculation. (MEM=1702.4 CPU=0:00:00.1 REAL=0:00:01.0)
+[04/20 16:51:32     98s] End delay calculation (fullDC). (MEM=1657.78 CPU=0:00:01.1 REAL=0:00:13.0)
+[04/20 16:51:32     98s] *** CDM Built up (cpu=0:00:01.1  real=0:00:14.0  mem= 1657.8M) ***
+[04/20 16:51:37     98s] **INFO: Disable pre-place timing setting for timing analysis
+[04/20 16:51:38     98s] Set Using Default Delay Limit as 1000.
+[04/20 16:51:38     98s] Set Default Net Delay as 1000 ps.
+[04/20 16:51:38     98s] Set Default Net Load as 0.5 pF. 
+[04/20 16:51:38     98s] **INFO: Pre-place timing setting for timing analysis already disabled
+[04/20 16:51:39     98s] OPERPROF: Starting PlacementDelFiller
+ at level 1, MEM:1648.3M
+[04/20 16:51:39     98s] Deleted 0 physical inst  (cell - / prefix -).
+[04/20 16:51:39     98s] OPERPROF: Finished PlacementDelFiller
+ at level 1, CPU:0.000, REAL:0.109, MEM:1648.3M
+[04/20 16:51:40     98s] INFO: #ExclusiveGroups=0
+[04/20 16:51:40     98s] INFO: There are no Exclusive Groups.
+[04/20 16:51:40     98s] *** Starting "NanoPlace(TM) placement v#9 (mem=1648.3M)" ...
+[04/20 16:51:40     98s] Wait...
+[04/20 16:51:41     98s] *** Build Buffered Sizing Timing Model
+[04/20 16:51:41     98s] (cpu=0:00:00.1 mem=1712.3M) ***
+[04/20 16:51:42     98s] *** Build Virtual Sizing Timing Model
+[04/20 16:51:42     98s] (cpu=0:00:00.2 mem=1712.3M) ***
+[04/20 16:51:43     98s] No user-set net weight.
+[04/20 16:51:43     99s] Net fanout histogram:
+[04/20 16:51:43     99s] 2		: 42 (71.2%) nets
+[04/20 16:51:43     99s] 3		: 16 (27.1%) nets
+[04/20 16:51:43     99s] 4     -	14	: 0 (0.0%) nets
+[04/20 16:51:43     99s] 15    -	39	: 1 (1.7%) nets
+[04/20 16:51:43     99s] 40    -	79	: 0 (0.0%) nets
+[04/20 16:51:43     99s] 80    -	159	: 0 (0.0%) nets
+[04/20 16:51:43     99s] 160   -	319	: 0 (0.0%) nets
+[04/20 16:51:43     99s] 320   -	639	: 0 (0.0%) nets
+[04/20 16:51:43     99s] 640   -	1279	: 0 (0.0%) nets
+[04/20 16:51:43     99s] 1280  -	2559	: 0 (0.0%) nets
+[04/20 16:51:43     99s] 2560  -	5119	: 0 (0.0%) nets
+[04/20 16:51:43     99s] 5120+		: 0 (0.0%) nets
+[04/20 16:51:43     99s] no activity file in design. spp won't run.
+[04/20 16:51:43     99s] Options: timingDriven clkGateAware ignoreScan pinGuide congEffort=auto gpeffort=medium 
+[04/20 16:51:43     99s] Scan chains were not defined.
+[04/20 16:51:44     99s] z: 2, totalTracks: 1
+[04/20 16:51:44     99s] z: 4, totalTracks: 1
+[04/20 16:51:44     99s] z: 6, totalTracks: 1
+[04/20 16:51:44     99s] z: 8, totalTracks: 1
+[04/20 16:51:44     99s] # Building cla4 llgBox search-tree.
+[04/20 16:51:45     99s] #std cell=49 (0 fixed + 49 movable) #buf cell=0 #inv cell=0 #block=0 (0 floating + 0 preplaced)
+[04/20 16:51:45     99s] #ioInst=0 #net=59 #term=162 #term/net=2.75, #fixedIo=0, #floatIo=0, #fixedPin=0, #floatPin=15
+[04/20 16:51:45     99s] stdCell: 49 single + 0 double + 0 multi
+[04/20 16:51:45     99s] Total standard cell length = 0.1045 (mm), area = 0.0003 (mm^2)
+[04/20 16:51:45     99s] OPERPROF: Starting spInitSiteArr at level 1, MEM:1712.3M
+[04/20 16:51:45     99s] OPERPROF:   Starting spiInitFpSiteArr at level 2, MEM:1712.3M
+[04/20 16:51:45     99s] Core basic site is CoreSite
+[04/20 16:51:46     99s] **Info: (IMPSP-307): Design contains fractional 20 cells.
+[04/20 16:51:46     99s] OPERPROF:     Starting spiCheckSiteIfFastDPInitAvailable at level 3, MEM:1712.3M
+[04/20 16:51:47     99s] OPERPROF:     Finished spiCheckSiteIfFastDPInitAvailable at level 3, CPU:0.220, REAL:1.006, MEM:1434.3M
+[04/20 16:51:47     99s] Use non-trimmed site array because memory saving is not enough.
+[04/20 16:51:47     99s] SiteArray: non-trimmed site array dimensions = 3 x 16
+[04/20 16:51:47     99s] SiteArray: use 4,096 bytes
+[04/20 16:51:47     99s] SiteArray: current memory after site array memory allocation 1434.3M
+[04/20 16:51:47     99s] SiteArray: FP blocked sites are writable
+[04/20 16:51:47     99s] Estimated cell power/ground rail width = 0.193 um
+[04/20 16:51:47     99s] Layer info - lib-1st H=1, V=2.  Cell-FPin=1. Top-pin=2
+[04/20 16:51:47     99s] OPERPROF:     Starting RoutingBlockageFromWireViaStBox at level 3, MEM:1434.3M
+[04/20 16:51:47     99s] Process 21 wires and vias for routing blockage analysis
+[04/20 16:51:47     99s] OPERPROF:     Finished RoutingBlockageFromWireViaStBox at level 3, CPU:0.050, REAL:0.262, MEM:1434.3M
+[04/20 16:51:47     99s] OPERPROF:   Finished spiInitFpSiteArr at level 2, CPU:0.370, REAL:2.352, MEM:1434.3M
+[04/20 16:51:47     99s] OPERPROF: Finished spInitSiteArr at level 1, CPU:0.390, REAL:2.816, MEM:1434.3M
+[04/20 16:51:47     99s] OPERPROF: Starting pre-place ADS at level 1, MEM:1434.3M
+[04/20 16:51:47     99s] Skip ADS.
+[04/20 16:51:47     99s] OPERPROF: Finished pre-place ADS at level 1, CPU:0.000, REAL:0.001, MEM:1434.3M
+[04/20 16:51:47     99s] Average module density = 8.594.
+[04/20 16:51:47     99s] Density for the design = 8.594.
+[04/20 16:51:47     99s]        = stdcell_area 275 sites (258 um^2) / alloc_area 32 sites (30 um^2).
+[04/20 16:51:47     99s] Pin Density = 3.3750.
+[04/20 16:51:47     99s]             = total # of pins 162 / total area 48.
+[04/20 16:51:47     99s] OPERPROF: Starting spMPad at level 1, MEM:1434.3M
+[04/20 16:51:47     99s] OPERPROF:   Starting spContextMPad at level 2, MEM:1434.3M
+[04/20 16:51:47     99s] OPERPROF:   Finished spContextMPad at level 2, CPU:0.000, REAL:0.000, MEM:1434.3M
+[04/20 16:51:47     99s] OPERPROF: Finished spMPad at level 1, CPU:0.000, REAL:0.000, MEM:1434.3M
+[04/20 16:51:48     99s] **ERROR: (IMPSP-190):	Design has util 859.4% > 100%, placer cannot proceed. The problem may be caused by option 'setPlaceMode -place_global_max_density', density screens (softBlockages and partial blockages), or user-specified cell padding. Please correct this problem first.
+OPERPROF: Starting spSiteCleanup(true) at level 1, MEM:1434.3M
+[04/20 16:51:48     99s] OPERPROF: Finished spSiteCleanup(true) at level 1, CPU:0.000, REAL:0.000, MEM:1434.3M
+[04/20 16:51:48     99s] *** Free Virtual Timing Model ...(mem=1434.3M)
+[04/20 16:51:58     99s] 
+[04/20 16:51:58     99s] *** Summary of all messages that are not suppressed in this session:
+[04/20 16:51:58     99s] Severity  ID               Count  Summary                                  
+[04/20 16:51:58     99s] WARNING   IMPDC-1629           1  The default delay limit was set to %d. T...
+[04/20 16:51:58     99s] ERROR     IMPSP-190            1  Design has util %.1f%% > 100%%, placer c...
+[04/20 16:51:58     99s] *** Message Summary: 1 warning(s), 1 error(s)
+[04/20 16:51:58     99s] 
+[04/20 16:51:58     99s] <CMD> addFiller -cell FILL -prefix FILL -fillBoundary
+[04/20 16:51:59     99s] **ERROR: (IMPSP-503):	Design must be placed before running "addFiller -cell FILL -prefix FILL -fillBoundary".
+
+[04/20 16:56:59    131s] 
+[04/20 16:56:59    131s] *** Memory Usage v#1 (Current mem = 1435.410M, initial mem = 284.219M) ***
+[04/20 16:56:59    131s] 
+[04/20 16:56:59    131s] *** Summary of all messages that are not suppressed in this session:
+[04/20 16:56:59    131s] Severity  ID               Count  Summary                                  
+[04/20 16:56:59    131s] WARNING   IMPLF-155            1  ViaRule only supports routing/cut layer,...
+[04/20 16:56:59    131s] WARNING   IMPFP-325            1  Floorplan of the design is resized. All ...
+[04/20 16:56:59    131s] WARNING   IMPEXT-2766         10  The sheet resistance for layer %s is not...
+[04/20 16:56:59    131s] WARNING   IMPEXT-2773         10  The via resistance between layers %s and...
+[04/20 16:56:59    131s] ERROR     IMPSYT-6692          1  Invalid return code while executing '%s'...
+[04/20 16:56:59    131s] ERROR     IMPSYT-6693          1  Error message: %s: %s.                   
+[04/20 16:56:59    131s] WARNING   IMPVL-159           62  Pin '%s' of cell '%s' is defined in LEF ...
+[04/20 16:56:59    131s] WARNING   IMPDC-1629           1  The default delay limit was set to %d. T...
+[04/20 16:56:59    131s] WARNING   IMPSR-1254           2  Unable to connect the specified objects,...
+[04/20 16:56:59    131s] WARNING   IMPSR-1256           2  Unable to find any CORE class pad pin of...
+[04/20 16:56:59    131s] ERROR     IMPSP-190            1  Design has util %.1f%% > 100%%, placer c...
+[04/20 16:56:59    131s] ERROR     IMPSP-503            1  Design must be placed before running "%s...
+[04/20 16:56:59    131s] WARNING   TCLCMD-1461          1  Skipped unsupported command: %s          
+[04/20 16:56:59    131s] *** Message Summary: 90 warning(s), 4 error(s)
+[04/20 16:56:59    131s] 
+[04/20 16:56:59    131s] --- Ending "Innovus" (totcpu=0:02:11, real=0:18:41, mem=1435.4M) ---

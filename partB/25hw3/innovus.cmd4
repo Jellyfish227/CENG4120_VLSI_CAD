@@ -1,0 +1,134 @@
+#######################################################
+#                                                     
+#  Innovus Command Logging File                     
+#  Created on Sun Apr 20 00:13:30 2025                
+#                                                     
+#######################################################
+
+#@(#)CDS: Innovus v20.14-s095_1 (64bit) 04/19/2021 14:41 (Linux 2.6.32-431.11.2.el6.x86_64)
+#@(#)CDS: NanoRoute 20.14-s095_1 NR210411-1939/20_14-UB (database version 18.20.547) {superthreading v2.13}
+#@(#)CDS: AAE 20.14-s018 (64bit) 04/19/2021 (Linux 2.6.32-431.11.2.el6.x86_64)
+#@(#)CDS: CTE 20.14-s027_1 () Apr 13 2021 21:29:07 ( )
+#@(#)CDS: SYNTECH 20.14-s017_1 () Mar 25 2021 13:07:27 ( )
+#@(#)CDS: CPE v20.14-s080
+#@(#)CDS: IQuantus/TQuantus 20.1.1-s460 (64bit) Fri Mar 5 18:46:16 PST 2021 (Linux 2.6.32-431.11.2.el6.x86_64)
+
+set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+suppressMessage ENCEXT-2799
+win
+setMultiCpuUsage -localCpu 8
+set init_verilog cla4_synth.v
+set init_top_cell cla4
+set init_lef_file FreePDK45/gscl45nm.lef
+set init_pwr_net vdd
+set init_gnd_net gnd
+set init_mmmc_file mmmc.tcl
+set init_verilog cla4_synth.v
+set init_top_cell cla4
+set init_lef_file FreePDK45/gscl45nm.lef
+set init_pwr_net vdd
+set init_gnd_net gnd
+set init_mmmc_file mmmc.tcl
+save_global cla4.globals
+init_design
+init_design
+init_design
+floorPlan -r 1.0 0.60 4.0 4.0 4.0 4.0
+globalNetConnect vdd -type pgpin -pin vdd -inst *
+globalNetConnect gnd -type pgpin -pin gnd -inst *
+sroute -nets {vdd gnd}
+addRing -center 1 -spacing 0.5 -width 0.5 -layer {top 3 bottom 3 left 4 right 4} -nets {gnd vdd}
+addStripe -nets {vdd gnd} -layer 4 -direction vertical -width 0.4 -spacing 0.5 -set_to_set_distance 5 -start 0.5
+addStripe -nets {vdd gnd} -layer 3 -direction horizontal -width 0.4 -spacing 0.5 -set_to_set_distance 5 -start 0.5
+place_design
+addFiller -cell FILL -prefix FILL -fillBoundary
+assignIoPins
+routeDesign
+zoomBox 2.63400 -0.62200 18.44300 14.85000
+fit
+deleteSelectedFromFPlan
+deleteSelectedFromFPlan
+deleteSelectedFromFPlan
+deleteSelectedFromFPlan
+deleteSelectedFromFPlan
+verify_drc
+report_area
+report_power
+loadWorkspace -name Floorplan
+zoomBox 1.19100 -0.32000 36.49100 25.72050
+setDrawView ameba
+setDrawView place
+zoomBox 3.28200 2.36250 33.28700 24.49700
+zoomBox -3.87750 -6.95850 44.98100 29.08400
+zoomBox -11.69750 -15.63150 55.92700 34.25450
+zoomBox 3.81650 0.04250 33.82250 22.17750
+zoomBox 7.26150 3.51150 28.94150 19.50450
+zoomBox 8.82300 4.62950 27.25100 18.22350
+zoomBox 10.27050 5.17100 25.93450 16.72600
+zoomBox 12.91650 6.24050 24.23450 14.58950
+zoomBox 13.91950 6.64050 23.54000 13.73750
+zoomBox 11.25650 5.66750 24.57250 15.49050
+zoomBox 9.42300 5.08650 25.08900 16.64300
+zoomBox 4.74250 3.60750 26.42550 19.60300
+zoomBox 0.27850 1.32000 30.29050 23.45950
+zoomBox -1.74250 -0.40050 33.56550 25.64600
+zoomBox -4.28000 -3.07950 37.25900 27.56350
+fit
+report_timing
+saveDesign cla4
+floorPlan -r 1.0 0.90 4.0 4.0 4.0 4.0
+verify_drc
+floorPlan -r 1.0 0.80 4.0 4.0 4.0 4.0
+verify_drc
+floorPlan -r 1.0 0.70 4.0 4.0 4.0 4.0
+zoomBox -3.26950 -0.31000 32.37150 25.98200
+zoomBox -4.84850 -1.01900 37.08250 29.91300
+verify_drc
+floorPlan -r 1.0 0.60 4.0 4.0 4.0 4.0
+verify_drc
+floorPlan -r 1.0 0.60 4.0 4.0 4.0 4.0
+globalNetConnect vdd -type pgpin -pin vdd -inst *
+globalNetConnect gnd -type pgpin -pin gnd -inst *
+sroute -nets {vdd gnd}
+addRing -center 1 -spacing 0.5 -width 0.5 -layer {top 3 bottom 3 left 4 right 4} -nets {gnd vdd}
+addStripe -nets {vdd gnd} -layer 4 -direction vertical -width 0.4 -spacing 0.5 -set_to_set_distance 5 -start 0.5
+addStripe -nets {vdd gnd} -layer 3 -direction horizontal -width 0.4 -spacing 0.5 -set_to_set_distance 5 -start 0.5
+place_design
+addFiller -cell FILL -prefix FILL -fillBoundary
+assignIoPins
+routeDesign
+floorPlan -r 1.0 0.70 4.0 4.0 4.0 4.0
+verify_drc
+floorPlan -r 1.0 0.70 4.0 4.0 4.0 4.0
+globalNetConnect vdd -type pgpin -pin vdd -inst *
+globalNetConnect gnd -type pgpin -pin gnd -inst *
+sroute -nets {vdd gnd}
+addRing -center 1 -spacing 0.5 -width 0.5 -layer {top 3 bottom 3 left 4 right 4} -nets {gnd vdd}
+addStripe -nets {vdd gnd} -layer 4 -direction vertical -width 0.4 -spacing 0.5 -set_to_set_distance 5 -start 0.5
+addStripe -nets {vdd gnd} -layer 3 -direction horizontal -width 0.4 -spacing 0.5 -set_to_set_distance 5 -start 0.5
+place_design
+addFiller -cell FILL -prefix FILL -fillBoundary
+assignIoPins
+routeDesign
+verify_drc
+zoomBox -1.85850 0.04700 33.78300 26.33950
+zoomBox -4.84850 -1.01900 37.08250 29.91300
+zoomBox -12.50500 -3.74900 45.53150 39.06400
+floorPlan -r 1.0 0.50 4.0 4.0 4.0 4.0
+globalNetConnect vdd -type pgpin -pin vdd -inst *
+globalNetConnect gnd -type pgpin -pin gnd -inst *
+sroute -nets {vdd gnd}
+addRing -center 1 -spacing 0.5 -width 0.5 -layer {top 3 bottom 3 left 4 right 4} -nets {gnd vdd}
+addStripe -nets {vdd gnd} -layer 4 -direction vertical -width 0.4 -spacing 0.5 -set_to_set_distance 5 -start 0.5
+addStripe -nets {vdd gnd} -layer 3 -direction horizontal -width 0.4 -spacing 0.5 -set_to_set_distance 5 -start 0.5
+place_design
+addFiller -cell FILL -prefix FILL -fillBoundary
+assignIoPins
+routeDesign
+floorPlan -r 1.0 0.50 4.0 4.0 4.0 4.0
+globalNetConnect vdd -type pgpin -pin vdd -inst *
+globalNetConnect gnd -type pgpin -pin gnd -inst *
+sroute -nets {vdd gnd}
+addRing -center 1 -spacing 0.5 -width 0.5 -layer {top 3 bottom 3 left 4 right 4} -nets {gnd vdd}
+addStripe -nets {vdd gnd} -layer 4 -direction vertical -width 0.4 -spacing 0.5 -set_to_set_distance 5 -start 0.5
+addStripe -nets {vdd gnd} -layer 3 -direction horizontal -width 0.4 -spacing 0.5 -set_to_set_distance 5 -start 0.5

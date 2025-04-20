@@ -1,0 +1,8 @@
+# cla4.globals
+
+set init_verilog cla4_synth.v
+set init_top_cell cla4
+set init_lef_file FreePDK45/gscl45nm.lef
+set init_pwr_net vdd
+set init_gnd_net gnd
+set init_mmmc_file mmmc.tcl
